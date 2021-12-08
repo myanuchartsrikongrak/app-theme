@@ -1,0 +1,42 @@
+aside.header {
+    width: 100%;
+    position: fixed;
+    background-color: theme-var($--theme-background);
+    .navbar {
+        background-color: theme-var($--theme-background);
+        .container-fluid {
+            display: inline-flex;
+            padding: 0px;
+            flex-wrap: inherit;
+            justify-content: initial;
+        }
+        .navbar-toggle {
+            width: $main-sidebar-width;
+            text-align: center;
+            display: inline-block;
+            button {
+                i {
+                    font-size: 18px;
+                    color: theme-var($--theme-primary);
+                }
+                &:hover {
+                    background-color: theme-var($--theme-background-hover);
+                }
+                &:focus, &:active {
+                    box-shadow: unset;
+                }
+            }
+        }
+        .navbar-brand {
+            color: theme-var($--theme-primary);
+            margin: 0px;
+            width: $sub-sidebar-width;
+            padding-left: 15px;
+            font-weight: 600;
+        }
+        .navbar-items {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+}
