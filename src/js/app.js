@@ -14,15 +14,15 @@ const _AppTheme = function() {
             this.setThemeDark($('html').hasClass('dark') ? 'dark' : '');
         },
         changeTheme: function(theme = 'default', dark = false) {
-            let theme_text = theme;
+
             if($('html').hasClass('dark')) dark = true;
             this.setThemeDark(dark ? 'dark' : '');
-            if(!appThemeColors.includes(theme)) theme_text = 'default';
-            this.setThemeColor(theme_text);
-            theme_text = `theme--${theme_text}`;
-            if(dark) theme_text = `${theme_text} dark`;
+
+            if(!appThemeColors.includes(theme)) theme = 'default';
+            this.setThemeColor(theme);
+
             $('html').removeClass();
-            $('html').addClass(theme_text);
+            $('html').addClass(`theme--${theme} ${dark ? 'dark' : ''}`);
         },
         setThemeColor(theme) {
             localStorage.setItem('app-theme-color', theme);
@@ -50,10 +50,12 @@ const _handleSidebar = function() {
         $('body').toggleClass('show-sidebar');
     });
 
-    const currentPath = window.location.pathname;
+    const currentPaths = window.location.pathname.split('/');
+    const currentPath = `${currentPaths[currentPaths.length - 1]}`;
+    console.log(window.location);
 
     $('.nav-sidebar ul.nav-sidebar-main li > a.btn').each((index, element) => {
-        if($(element).attr('href') === currentPath) {
+        if(`${$(element).attr('href')}` === currentPath) {
             $(element).parents('.nav-sidebar').removeClass('show-sub');
             $(element).parent().addClass('active');
         }

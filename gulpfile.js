@@ -65,8 +65,18 @@ exports.includeHTML = includeHTML;
 exports.default = async function() {
   // Init serve files from the build folder
   server.init({
+    port: 8080,
+    ui: false,
     server: {
-      baseDir: paths.scripts.dest
+      baseDir: paths.scripts.dest,
+      port: 8080
+    },
+    middleware: function(req, res, next) {
+      if(req.url === '/') {
+        res.writeHead(301, {Location: '/index.html'});
+        res.end();
+      }
+      next();
     }
   });
   // Build and reload at the first time

@@ -18,15 +18,14 @@ var _AppTheme = (function () {
             var theme = arguments[0] === undefined ? "default" : arguments[0];
             var dark = arguments[1] === undefined ? false : arguments[1];
 
-            var theme_text = theme;
             if ($("html").hasClass("dark")) dark = true;
             this.setThemeDark(dark ? "dark" : "");
-            if (!appThemeColors.includes(theme)) theme_text = "default";
-            this.setThemeColor(theme_text);
-            theme_text = "theme--" + theme_text;
-            if (dark) theme_text = "" + theme_text + " dark";
+
+            if (!appThemeColors.includes(theme)) theme = "default";
+            this.setThemeColor(theme);
+
             $("html").removeClass();
-            $("html").addClass(theme_text);
+            $("html").addClass("theme--" + theme + " " + (dark ? "dark" : ""));
         },
         setThemeColor: function setThemeColor(theme) {
             localStorage.setItem("app-theme-color", theme);
@@ -51,10 +50,12 @@ var _handleSidebar = function _handleSidebar() {
         $("body").toggleClass("show-sidebar");
     });
 
-    var currentPath = window.location.pathname;
+    var currentPaths = window.location.pathname.split("/");
+    var currentPath = "" + currentPaths[currentPaths.length - 1];
+    console.log(window.location);
 
     $(".nav-sidebar ul.nav-sidebar-main li > a.btn").each(function (index, element) {
-        if ($(element).attr("href") === currentPath) {
+        if ("" + $(element).attr("href") === currentPath) {
             $(element).parents(".nav-sidebar").removeClass("show-sub");
             $(element).parent().addClass("active");
         }
