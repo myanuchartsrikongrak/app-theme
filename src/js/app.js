@@ -33,14 +33,25 @@ const _AppTheme = function() {
     };
 }();
 
+const _handleVendor_jqueryScrollbar = function() {
+    $(`[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar({
+        ignoreOverlay: true,
+        ignoreMobile: true,
+        disableBodyScroll : false
+    });
+}
+
 var App = function() {
     "use strict";
-    const appThemeColors = ['default', 'green', 'orange'];
+    let appThemeColors = ['default', 'green', 'orange'];
+
+    const _appTheme = _AppTheme.init(appThemeColors);
+    
     return {
         init: function() {
-            
+            _handleVendor_jqueryScrollbar();
         },
-        theme: _AppTheme.init(appThemeColors)
+        theme: _appTheme
     };
 }();
 
@@ -52,7 +63,7 @@ const _handleSidebar = function() {
 
     const currentPaths = window.location.pathname.split('/');
     const currentPath = `${currentPaths[currentPaths.length - 1]}`;
-    console.log(window.location);
+    // console.log(window.location);
 
     $('.nav-sidebar ul.nav-sidebar-main li > a.btn').each((index, element) => {
         if(`${$(element).attr('href')}` === currentPath) {

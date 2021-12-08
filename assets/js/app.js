@@ -36,12 +36,25 @@ var _AppTheme = (function () {
     };
 })();
 
+var _handleVendor_jqueryScrollbar = function _handleVendor_jqueryScrollbar() {
+    $("[data-vendor=\"jquery.scrollbar\"]").addClass("scrollbar").addClass("scrollbar-macosx").scrollbar({
+        ignoreOverlay: true,
+        ignoreMobile: true,
+        disableBodyScroll: false
+    });
+};
+
 var App = (function () {
     "use strict";
     var appThemeColors = ["default", "green", "orange"];
+
+    var _appTheme = _AppTheme.init(appThemeColors);
+
     return {
-        init: function init() {},
-        theme: _AppTheme.init(appThemeColors)
+        init: function init() {
+            _handleVendor_jqueryScrollbar();
+        },
+        theme: _appTheme
     };
 })();
 
@@ -52,7 +65,7 @@ var _handleSidebar = function _handleSidebar() {
 
     var currentPaths = window.location.pathname.split("/");
     var currentPath = "" + currentPaths[currentPaths.length - 1];
-    console.log(window.location);
+    // console.log(window.location);
 
     $(".nav-sidebar ul.nav-sidebar-main li > a.btn").each(function (index, element) {
         if ("" + $(element).attr("href") === currentPath) {
