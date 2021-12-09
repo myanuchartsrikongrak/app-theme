@@ -186,10 +186,6 @@ aside.sidebar {
     height: calc(100vh - 56px);
     overflow: hidden;
     padding-right: 15px; }
-    aside.sidebar .nav-sidebar-children.scroll-content {
-      left: 0px !important;
-      margin-top: 0px !important;
-      padding-top: 0px !important; }
     aside.sidebar .nav-sidebar-children li {
       width: 100%;
       margin: 0px;
@@ -446,8 +442,6 @@ body {
   flex-direction: row;
   width: 100%;
   height: 100vh; }
-  .app-layout .page-scrollbar {
-    width: 100%; }
   .app-layout main.page-container {
     z-index: 100;
     width: 100%;

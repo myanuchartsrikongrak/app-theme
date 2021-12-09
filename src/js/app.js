@@ -62,7 +62,7 @@ const _handle_sidebar_state = function() {
     // main sidebar
     const mainSidebarItems = _AppHelpers.SelectorEngine.find(`.sidebar-main-item`);
     mainSidebarItems.forEach((mainItem, mainItemIndex) => {
-        const button = _AppHelpers.SelectorEngine.findOne('a.btn', mainItem);
+        const button = _AppHelpers.SelectorEngine.findOne('a.btn, button.btn', mainItem);
         if(button && button.getAttribute('href') === currentPath) {
             mainItem.classList.add('active');
             sidebar.classList.remove('show-children');
@@ -89,7 +89,7 @@ const _handle_sidebar_actions = function() {
 
     const mainSidebarItems = _AppHelpers.SelectorEngine.find(`.sidebar-main-item`);
     mainSidebarItems.forEach((mainItem, index) => {
-        const button = _AppHelpers.SelectorEngine.findOne('a.btn', mainItem);
+        const button = _AppHelpers.SelectorEngine.findOne('a.btn, button.btn', mainItem);
         if(button) {
             button.addEventListener('click', () => {
                 mainSidebarItems.forEach((mainItemTemp, indexTemp) => {
