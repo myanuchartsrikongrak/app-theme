@@ -171,6 +171,7 @@ aside.sidebar {
         aside.sidebar .nav-sidebar-main > li.active .nav-sidebar-children {
           display: block !important; }
   aside.sidebar .nav-sidebar-children {
+    z-index: 100;
     width: calc(220px);
     padding: 0px;
     list-style-type: none;
@@ -242,7 +243,7 @@ aside.sidebar {
     -o-transition: width .2s ease-in-out;
     transition: width .2s ease-in-out; }
 
-body.show-sidebar .nav-sidebar.show-sub + .bg-sidebar {
+body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
   width: calc(120px + 220px); }
 
 .breadcrumb-section {
@@ -448,6 +449,7 @@ body {
   .app-layout .page-scrollbar {
     width: 100%; }
   .app-layout main.page-container {
+    z-index: 100;
     width: 100%;
     background-color: var(--theme-background);
     position: relative;

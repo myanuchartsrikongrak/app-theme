@@ -80,6 +80,7 @@ aside.sidebar {
             margin-top: 0px!important;
             padding-top: 0px!important;
         }
+        z-index: 100;
         width: calc(#{$sub-sidebar-width});
         padding: 0px;
         list-style-type: none;
@@ -166,7 +167,7 @@ aside.sidebar {
 
 body.show-sidebar {
     .nav-sidebar {
-        &.show-sub {
+        &.show-children {
             +.bg-sidebar {
                 width: calc(#{$main-sidebar-width} + #{$sub-sidebar-width});
             }

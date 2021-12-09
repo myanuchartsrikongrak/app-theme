@@ -20,6 +20,7 @@ body {
         width: 100%;
     }
     main.page-container {
+        z-index: 100;
         width: 100%;
         background-color: theme-var($--theme-background);
         position: relative;
