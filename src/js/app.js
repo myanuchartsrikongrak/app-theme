@@ -47,42 +47,6 @@ const _HelperSelectorEngine = (function () {
     };
 })();
 
-const _AppHelpers = (function () {
-    return {
-        SelectorEngine: _HelperSelectorEngine
-    };
-})();
-
-const _AppTheme = (function () {
-    let appThemeColors = [];
-    return {
-        init: function (colors = []) {
-            appThemeColors = colors;
-            const currentThemeColor = localStorage.getItem("app-theme-color");
-            const currentThemeDark = localStorage.getItem("app-theme-dark");
-            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
-            return this;
-        },
-        toggleDarkMode: function () {
-            document.documentElement.classList.toggle("dark");
-            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
-        },
-        changeTheme: function (theme = "default", dark = "") {
-            if (document.documentElement.classList.contains("dark")) dark = "dark";
-            this.setThemeDark(dark);
-            if (!appThemeColors.includes(theme)) theme = "default";
-            this.setThemeColor(theme);
-            document.documentElement.className = `theme--${theme} ${dark}`;
-        },
-        setThemeColor: function (theme) {
-            localStorage.setItem("app-theme-color", theme);
-        },
-        setThemeDark: function (dark) {
-            localStorage.setItem("app-theme-dark", dark);
-        },
-    };
-})();
-
 const _handleVendor_scrollbot = function () {
     new Scrollbot(`[data-vendor="scrollbot"]`);
 };
@@ -147,6 +111,42 @@ const _handle_sidebar_actions = function() {
         });
     });
 };
+
+const _AppHelpers = (function () {
+    return {
+        SelectorEngine: _HelperSelectorEngine
+    };
+})();
+
+const _AppTheme = (function () {
+    let appThemeColors = [];
+    return {
+        init: function (colors = []) {
+            appThemeColors = colors;
+            const currentThemeColor = localStorage.getItem("app-theme-color");
+            const currentThemeDark = localStorage.getItem("app-theme-dark");
+            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            return this;
+        },
+        toggleDarkMode: function () {
+            document.documentElement.classList.toggle("dark");
+            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
+        },
+        changeTheme: function (theme = "default", dark = "") {
+            if (document.documentElement.classList.contains("dark")) dark = "dark";
+            this.setThemeDark(dark);
+            if (!appThemeColors.includes(theme)) theme = "default";
+            this.setThemeColor(theme);
+            document.documentElement.className = `theme--${theme} ${dark}`;
+        },
+        setThemeColor: function (theme) {
+            localStorage.setItem("app-theme-color", theme);
+        },
+        setThemeDark: function (dark) {
+            localStorage.setItem("app-theme-dark", dark);
+        },
+    };
+})();
 
 var App = (function () {
     "use strict";

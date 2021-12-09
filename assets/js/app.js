@@ -77,46 +77,6 @@ var _HelperSelectorEngine = (function () {
     };
 })();
 
-var _AppHelpers = (function () {
-    return {
-        SelectorEngine: _HelperSelectorEngine
-    };
-})();
-
-var _AppTheme = (function () {
-    var appThemeColors = [];
-    return {
-        init: function init() {
-            var colors = arguments[0] === undefined ? [] : arguments[0];
-
-            appThemeColors = colors;
-            var currentThemeColor = localStorage.getItem("app-theme-color");
-            var currentThemeDark = localStorage.getItem("app-theme-dark");
-            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
-            return this;
-        },
-        toggleDarkMode: function toggleDarkMode() {
-            document.documentElement.classList.toggle("dark");
-            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
-        },
-        changeTheme: function changeTheme() {
-            var theme = arguments[0] === undefined ? "default" : arguments[0];
-            var dark = arguments[1] === undefined ? "" : arguments[1];
-
-            if (document.documentElement.classList.contains("dark")) dark = "dark";
-            this.setThemeDark(dark);
-            if (!appThemeColors.includes(theme)) theme = "default";
-            this.setThemeColor(theme);
-            document.documentElement.className = "theme--" + theme + " " + dark;
-        },
-        setThemeColor: function setThemeColor(theme) {
-            localStorage.setItem("app-theme-color", theme);
-        },
-        setThemeDark: function setThemeDark(dark) {
-            localStorage.setItem("app-theme-dark", dark);
-        } };
-})();
-
 var _handleVendor_scrollbot = function _handleVendor_scrollbot() {
     new Scrollbot("[data-vendor=\"scrollbot\"]");
 };
@@ -181,6 +141,46 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
         });
     });
 };
+
+var _AppHelpers = (function () {
+    return {
+        SelectorEngine: _HelperSelectorEngine
+    };
+})();
+
+var _AppTheme = (function () {
+    var appThemeColors = [];
+    return {
+        init: function init() {
+            var colors = arguments[0] === undefined ? [] : arguments[0];
+
+            appThemeColors = colors;
+            var currentThemeColor = localStorage.getItem("app-theme-color");
+            var currentThemeDark = localStorage.getItem("app-theme-dark");
+            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            return this;
+        },
+        toggleDarkMode: function toggleDarkMode() {
+            document.documentElement.classList.toggle("dark");
+            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
+        },
+        changeTheme: function changeTheme() {
+            var theme = arguments[0] === undefined ? "default" : arguments[0];
+            var dark = arguments[1] === undefined ? "" : arguments[1];
+
+            if (document.documentElement.classList.contains("dark")) dark = "dark";
+            this.setThemeDark(dark);
+            if (!appThemeColors.includes(theme)) theme = "default";
+            this.setThemeColor(theme);
+            document.documentElement.className = "theme--" + theme + " " + dark;
+        },
+        setThemeColor: function setThemeColor(theme) {
+            localStorage.setItem("app-theme-color", theme);
+        },
+        setThemeDark: function setThemeDark(dark) {
+            localStorage.setItem("app-theme-dark", dark);
+        } };
+})();
 
 var App = (function () {
     "use strict";
