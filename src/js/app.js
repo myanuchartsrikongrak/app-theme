@@ -47,8 +47,12 @@ const _HelperSelectorEngine = (function () {
     };
 })();
 
-const _handleVendor_scrollbot = function () {
-    new Scrollbot(`[data-vendor="scrollbot"]`);
+const _handleVendor__jqueyr_scrollbar = function () {
+    $(`[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar({
+        ignoreOverlay: true,
+        ignoreMobile: true,
+        disableBodyScroll : false
+    });
 };
 
 const _handle_sidebar_state = function() {
@@ -162,7 +166,7 @@ var App = (function () {
             _handle_sidebar_state();
         },
         initVendor: function() {
-            _handleVendor_scrollbot();
+            _handleVendor__jqueyr_scrollbar();
         },
         theme: _appTheme,
         helpers: _AppHelpers,

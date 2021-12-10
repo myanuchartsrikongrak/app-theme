@@ -75,6 +75,11 @@ aside.sidebar {
         }
     }
     .nav-sidebar-children {
+        &.scroll-content {
+            left: 0px!important;
+            margin-top: 0px!important;
+            padding-top: 0px!important;
+        }
         z-index: 100;
         width: calc(#{$sub-sidebar-width});
         padding: 0px;
