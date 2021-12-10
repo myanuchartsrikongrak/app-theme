@@ -22,7 +22,7 @@ async function reload() {
 
 // Sass compiler
 async function compileSass() {
-  gulp.src('./src/scss/style.scss')
+  gulp.src('./src/styles/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./assets/css'));
 }
@@ -86,7 +86,7 @@ exports.default = async function() {
   // Watch Js task
   watch('./src/js/app.js', series(compilerJs));
   // Watch Sass task
-  watch('./src/scss/**/*.scss',  series(compileSass));
+  watch('./src/styles/**/*.scss',  series(compileSass));
   // Watch task
   watch(["./src/html/**/*.html", "assets/**/*"], series(buildAndReload));
 };
