@@ -1,4 +1,4 @@
-const _HelperSelectorEngine = (function () {
+const _HelperSelector = (function () {
     return {
         find: function (selector, element = document.documentElement) {
             return [].concat(
@@ -47,6 +47,12 @@ const _HelperSelectorEngine = (function () {
     };
 })();
 
+const _Helpers = (function () {
+    return {
+        Selector: _HelperSelector
+    };
+})();
+
 const _handleVendor__jqueyr_scrollbar = function () {
     $(`[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar({
         ignoreOverlay: true,
@@ -59,14 +65,14 @@ const _handle_sidebar_state = function() {
     const currentPaths = window.location.pathname.split("/");
     const currentPath = `${currentPaths[currentPaths.length - 1]}`;
 
-    const sidebar = _AppHelpers.SelectorEngine.findOne(`.nav-sidebar`);
+    const sidebar = _Helpers.Selector.findOne(`.nav-sidebar`);
 
     sidebar.classList.add('show-children');
 
     // main sidebar
-    const mainSidebarItems = _AppHelpers.SelectorEngine.find(`.sidebar-main-item`);
+    const mainSidebarItems = _Helpers.Selector.find(`.sidebar-main-item`);
     mainSidebarItems.forEach((mainItem, mainItemIndex) => {
-        const button = _AppHelpers.SelectorEngine.findOne('a.btn, button.btn', mainItem);
+        const button = _Helpers.Selector.findOne('a.btn, button.btn', mainItem);
         if(button && button.getAttribute('href') === currentPath) {
             mainItem.classList.add('active');
             sidebar.classList.remove('show-children');
@@ -74,13 +80,13 @@ const _handle_sidebar_state = function() {
         }
 
         // children sidebar
-        const childrenSidebarItems = _AppHelpers.SelectorEngine.find(`.sidebar-children-item`, mainItem);
+        const childrenSidebarItems = _Helpers.Selector.find(`.sidebar-children-item`, mainItem);
         childrenSidebarItems.forEach((childrenItem, childrenItemIndex) => {
-            const button = _AppHelpers.SelectorEngine.findOne('a', childrenItem);
+            const button = _Helpers.Selector.findOne('a', childrenItem);
             if(button && button.getAttribute('href') === currentPath) {
                 childrenItem.classList.add('active');
                 mainItem.classList.add('active');
-                if(_AppHelpers.SelectorEngine.findOne('ul.nav-sidebar-children', mainItem)) {
+                if(_Helpers.Selector.findOne('ul.nav-sidebar-children', mainItem)) {
                     sidebar.classList.add('show-children');
                 }
             }
@@ -89,16 +95,16 @@ const _handle_sidebar_state = function() {
 };
 
 const _handle_sidebar_actions = function() {
-    const sidebar = _AppHelpers.SelectorEngine.findOne(`.nav-sidebar`);
+    const sidebar = _Helpers.Selector.findOne(`.nav-sidebar`);
 
-    const mainSidebarItems = _AppHelpers.SelectorEngine.find(`.sidebar-main-item`);
+    const mainSidebarItems = _Helpers.Selector.find(`.sidebar-main-item`);
     mainSidebarItems.forEach((mainItem, index) => {
-        const button = _AppHelpers.SelectorEngine.findOne('a.btn, button.btn', mainItem);
+        const button = _Helpers.Selector.findOne('a.btn, button.btn', mainItem);
         if(button) {
             button.addEventListener('click', () => {
                 mainSidebarItems.forEach((mainItemTemp, indexTemp) => {
                     mainItemTemp.classList.remove('active');
-                    if(_AppHelpers.SelectorEngine.findOne('ul.nav-sidebar-children', mainItem)) {
+                    if(_Helpers.Selector.findOne('ul.nav-sidebar-children', mainItem)) {
                         sidebar.classList.add('show-children');
                     }
                 });
@@ -108,7 +114,7 @@ const _handle_sidebar_actions = function() {
         }
     });
 
-    const toggleButtons = _AppHelpers.SelectorEngine.find(`[data-click="sidebar-toggle"]`);
+    const toggleButtons = _Helpers.Selector.find(`[data-click="sidebar-toggle"]`);
     toggleButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             document.body.classList.toggle('show-sidebar');
@@ -116,30 +122,24 @@ const _handle_sidebar_actions = function() {
     });
 };
 
-const _AppHelpers = (function () {
-    return {
-        SelectorEngine: _HelperSelectorEngine
-    };
-})();
-
 const _AppTheme = (function () {
-    let appThemeColors = [];
     return {
-        init: function (colors = []) {
-            appThemeColors = colors;
+        colors: ['default'],
+        init: function (colors = ['default']) {
+            this.colors = colors;
             const currentThemeColor = localStorage.getItem("app-theme-color");
             const currentThemeDark = localStorage.getItem("app-theme-dark");
-            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
             return this;
         },
         toggleDarkMode: function () {
             document.documentElement.classList.toggle("dark");
             this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
         },
-        changeTheme: function (theme = "default", dark = "") {
+        change: function (theme = "default", dark = "") {
             if (document.documentElement.classList.contains("dark")) dark = "dark";
             this.setThemeDark(dark);
-            if (!appThemeColors.includes(theme)) theme = "default";
+            if (!this.colors.includes(theme)) theme = "default";
             this.setThemeColor(theme);
             document.documentElement.className = `theme--${theme} ${dark}`;
         },
@@ -154,12 +154,17 @@ const _AppTheme = (function () {
 
 var App = (function () {
     "use strict";
-    const _appThemeColors = ["default", "green", "orange"];
-    const _appTheme = _AppTheme.init(_appThemeColors);
+
+    var settings = {};
+    
     return {
-        init: function () {
+        init: function (options) {
+            Object.assign(settings, options);
+            this.theme = _AppTheme.init(settings.colors);
+            this.helpers = _Helpers;
             this.initSidebar();
             this.initVendor();
+            return this;
         },
         initSidebar: function()  {
             _handle_sidebar_actions();
@@ -167,9 +172,7 @@ var App = (function () {
         },
         initVendor: function() {
             _handleVendor__jqueyr_scrollbar();
-        },
-        theme: _appTheme,
-        helpers: _AppHelpers,
+        }
     };
 })();
 
@@ -183,6 +186,8 @@ var TestApp = (function () {
 })();
 
 document.addEventListener('DOMContentLoaded', function(){ 
-    App.init();
+    App.init({
+        colors: ["default", "green", "orange"]
+    });
     TestApp.init();
 }, false);

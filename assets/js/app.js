@@ -2,7 +2,7 @@
 
 var _toConsumableArray = function (arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } };
 
-var _HelperSelectorEngine = (function () {
+var _HelperSelector = (function () {
     return {
         find: function find(selector) {
             var _ref;
@@ -77,6 +77,12 @@ var _HelperSelectorEngine = (function () {
     };
 })();
 
+var _Helpers = (function () {
+    return {
+        Selector: _HelperSelector
+    };
+})();
+
 var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar() {
     $("[data-vendor=\"jquery.scrollbar\"]").addClass("scrollbar").addClass("scrollbar-macosx").scrollbar({
         ignoreOverlay: true,
@@ -89,14 +95,14 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
     var currentPaths = window.location.pathname.split("/");
     var currentPath = "" + currentPaths[currentPaths.length - 1];
 
-    var sidebar = _AppHelpers.SelectorEngine.findOne(".nav-sidebar");
+    var sidebar = _Helpers.Selector.findOne(".nav-sidebar");
 
     sidebar.classList.add("show-children");
 
     // main sidebar
-    var mainSidebarItems = _AppHelpers.SelectorEngine.find(".sidebar-main-item");
+    var mainSidebarItems = _Helpers.Selector.find(".sidebar-main-item");
     mainSidebarItems.forEach(function (mainItem, mainItemIndex) {
-        var button = _AppHelpers.SelectorEngine.findOne("a.btn, button.btn", mainItem);
+        var button = _Helpers.Selector.findOne("a.btn, button.btn", mainItem);
         if (button && button.getAttribute("href") === currentPath) {
             mainItem.classList.add("active");
             sidebar.classList.remove("show-children");
@@ -104,13 +110,13 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
         }
 
         // children sidebar
-        var childrenSidebarItems = _AppHelpers.SelectorEngine.find(".sidebar-children-item", mainItem);
+        var childrenSidebarItems = _Helpers.Selector.find(".sidebar-children-item", mainItem);
         childrenSidebarItems.forEach(function (childrenItem, childrenItemIndex) {
-            var button = _AppHelpers.SelectorEngine.findOne("a", childrenItem);
+            var button = _Helpers.Selector.findOne("a", childrenItem);
             if (button && button.getAttribute("href") === currentPath) {
                 childrenItem.classList.add("active");
                 mainItem.classList.add("active");
-                if (_AppHelpers.SelectorEngine.findOne("ul.nav-sidebar-children", mainItem)) {
+                if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
                     sidebar.classList.add("show-children");
                 }
             }
@@ -119,16 +125,16 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
 };
 
 var _handle_sidebar_actions = function _handle_sidebar_actions() {
-    var sidebar = _AppHelpers.SelectorEngine.findOne(".nav-sidebar");
+    var sidebar = _Helpers.Selector.findOne(".nav-sidebar");
 
-    var mainSidebarItems = _AppHelpers.SelectorEngine.find(".sidebar-main-item");
+    var mainSidebarItems = _Helpers.Selector.find(".sidebar-main-item");
     mainSidebarItems.forEach(function (mainItem, index) {
-        var button = _AppHelpers.SelectorEngine.findOne("a.btn, button.btn", mainItem);
+        var button = _Helpers.Selector.findOne("a.btn, button.btn", mainItem);
         if (button) {
             button.addEventListener("click", function () {
                 mainSidebarItems.forEach(function (mainItemTemp, indexTemp) {
                     mainItemTemp.classList.remove("active");
-                    if (_AppHelpers.SelectorEngine.findOne("ul.nav-sidebar-children", mainItem)) {
+                    if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
                         sidebar.classList.add("show-children");
                     }
                 });
@@ -138,7 +144,7 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
         }
     });
 
-    var toggleButtons = _AppHelpers.SelectorEngine.find("[data-click=\"sidebar-toggle\"]");
+    var toggleButtons = _Helpers.Selector.find("[data-click=\"sidebar-toggle\"]");
     toggleButtons.forEach(function (button, index) {
         button.addEventListener("click", function () {
             document.body.classList.toggle("show-sidebar");
@@ -146,35 +152,29 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
     });
 };
 
-var _AppHelpers = (function () {
-    return {
-        SelectorEngine: _HelperSelectorEngine
-    };
-})();
-
 var _AppTheme = (function () {
-    var appThemeColors = [];
     return {
+        colors: ["default"],
         init: function init() {
-            var colors = arguments[0] === undefined ? [] : arguments[0];
+            var colors = arguments[0] === undefined ? ["default"] : arguments[0];
 
-            appThemeColors = colors;
+            this.colors = colors;
             var currentThemeColor = localStorage.getItem("app-theme-color");
             var currentThemeDark = localStorage.getItem("app-theme-dark");
-            this.changeTheme(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
             return this;
         },
         toggleDarkMode: function toggleDarkMode() {
             document.documentElement.classList.toggle("dark");
             this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
         },
-        changeTheme: function changeTheme() {
+        change: function change() {
             var theme = arguments[0] === undefined ? "default" : arguments[0];
             var dark = arguments[1] === undefined ? "" : arguments[1];
 
             if (document.documentElement.classList.contains("dark")) dark = "dark";
             this.setThemeDark(dark);
-            if (!appThemeColors.includes(theme)) theme = "default";
+            if (!this.colors.includes(theme)) theme = "default";
             this.setThemeColor(theme);
             document.documentElement.className = "theme--" + theme + " " + dark;
         },
@@ -188,12 +188,17 @@ var _AppTheme = (function () {
 
 var App = (function () {
     "use strict";
-    var _appThemeColors = ["default", "green", "orange"];
-    var _appTheme = _AppTheme.init(_appThemeColors);
+
+    var settings = {};
+
     return {
-        init: function init() {
+        init: function init(options) {
+            Object.assign(settings, options);
+            this.theme = _AppTheme.init(settings.colors);
+            this.helpers = _Helpers;
             this.initSidebar();
             this.initVendor();
+            return this;
         },
         initSidebar: function initSidebar() {
             _handle_sidebar_actions();
@@ -201,9 +206,8 @@ var App = (function () {
         },
         initVendor: function initVendor() {
             _handleVendor__jqueyr_scrollbar();
-        },
-        theme: _appTheme,
-        helpers: _AppHelpers };
+        }
+    };
 })();
 
 var TestApp = (function () {
@@ -213,6 +217,8 @@ var TestApp = (function () {
 })();
 
 document.addEventListener("DOMContentLoaded", function () {
-    App.init();
+    App.init({
+        colors: ["default", "green", "orange"]
+    });
     TestApp.init();
 }, false);
