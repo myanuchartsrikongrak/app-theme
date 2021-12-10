@@ -1,0 +1,19 @@
+[data-vendor="scrollbot"] {
+    .scrollbot-outer-parent {
+        .scrollbot-inner-parent {
+
+        }
+        .scrollbot-scrollbar-holder {
+            display: none!important;
+            background-color: theme-var($--theme-background)!important;
+            .scrollbot-scrollbar {
+                background-color: theme-var($--theme-scrollbar)!important;
+            }
+        }
+        &:hover {
+            .scrollbot-scrollbar-holder {
+                display: block!important;
+            }
+        }
+    }
+}
