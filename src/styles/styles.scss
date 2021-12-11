@@ -3,14 +3,19 @@
 
 @import "scss/app/header";
 @import "scss/app/sidebar";
+
+@import "scss/ui/button";
 @import "scss/ui/breadcrumb";
+@import "scss/ui/card";
+
 @import "scss/ui/vendor/jquery.scrollbar";
 
 body {
-    background-color: theme-var($--theme-background);
+    background-color: var(--theme-background);
     overflow: auto;
+    color: rgba(var(--theme-color-rgb), .45);
+    font-family: 'Maven Pro';
 }
-
 .app-layout {
     display: flex;
     flex-direction: row;
@@ -22,7 +27,7 @@ body {
         }
         z-index: 100;
         width: 100%;
-        background-color: theme-var($--theme-background);
+        background-color: var(--theme-background);
         position: relative;
         margin-top: $header-height;
         padding: 10px;

@@ -1,120 +1,45 @@
-$font-family-base: 'Maven Pro','Prompt', sans-serif !default;
+@import "themes/variables_default";
+@import "themes/variables_green";
+@import "themes/variables_orange";
+
 $header-height: 56px !default;
 $main-sidebar-width: 120px !default;
 $sub-sidebar-width: 220px !default;
 
-// themes
-$--theme-primary: --theme-primary;
-$--theme-secondary: --theme-secondary;
-$--theme-background: --theme-background;
-$--theme-background-hover: --theme-background-hover;
-$--theme-background-active: --theme-background-active;
-$--theme-scrollbar: --theme-scrollbar;
-$--theme-color-active: --theme-color-active;
-$--theme-color-black: --theme-color-black;
-$--theme-color-white: --theme-color-white;
-
-// Default theme
-$theme-map-default: (
-    $--theme-primary: #283593,
-    $--theme-secondary: #8c9eff,
-    $--theme-background: #fcfcfe,
-
-    $--theme-background-hover: rgba(80,80,80, 0.05),
-    $--theme-background-active: rgba(#8c9eff, 0.24),
-    $--theme-scrollbar: rgba(0,0,0, 0.25),
-    $--theme-color-active: rgba(#283593, 1),
-    $--theme-color-black: rgb(0,0,0),
-    $--theme-color-white: rgb(255,255,255),
+$map-global-colors: (
+    --theme-color: #000000,
+    --theme-background-scrollbar: #000000,
 );
-$theme-map-default-dark: (
-    $--theme-primary: #5c6bc0,
-    $--theme-secondary: #82b1ff,
-    $--theme-background: #0c1024,
-
-    $--theme-background-hover: rgba(255,255,255, 0.05),
-    $--theme-background-active: rgba(#82b1ff, 0.24),
-    $--theme-scrollbar: rgba(255,255,255, 0.25),
-    $--theme-color-active: rgb(255,255,255),
-    $--theme-color-black: rgb(255,255,255),
-    $--theme-color-white: rgb(0,0,0),
-);
-
-// Green theme
-$theme-map-green: (
-    $--theme-primary: #008573,
-    $--theme-secondary: #64ffda,
-    $--theme-background: #fbfdfd,
-
-    $--theme-background-hover: rgba(80,80,80, 0.05),
-    $--theme-background-active: rgba(#64ffda, 0.24),
-    $--theme-scrollbar: rgba(0,0,0, 0.25),
-    $--theme-color-active: rgba(#008573, 1),
-    $--theme-color-black: rgb(0,0,0),
-    $--theme-color-white: rgb(255,255,255),
-);
-$theme-map-green-dark: (
-    $--theme-primary: #00bfa5,
-    $--theme-secondary: #a7ffeb,
-
-    $--theme-background: #001412,
-    $--theme-background-hover: rgba(255,255,255, 0.05),
-    $--theme-background-active: rgba(#a7ffeb, 0.24),
-    $--theme-scrollbar: rgba(255,255,255, 0.25),
-    $--theme-color-active: rgb(255,255,255),
-    $--theme-color-black: rgb(255,255,255),
-    $--theme-color-white: rgb(0,0,0),
-);
-
-// Orange theme
-$theme-map-orange: (
-    $--theme-primary: #ff3d00,
-    $--theme-secondary: #ff9e80,
-    $--theme-background: #fffdfb,
-
-    $--theme-background-hover: rgba(80,80,80, 0.05),
-    $--theme-background-active: rgba(#ff9e80, 0.24),
-    $--theme-scrollbar: rgba(0,0,0, 0.25),
-    $--theme-color-active: rgba(#ff3d00, 1),
-    $--theme-color-black: rgb(0,0,0),
-    $--theme-color-white: rgb(255,255,255),
-);
-$theme-map-orange-dark: (
-    $--theme-primary: #ff9100,
-    $--theme-secondary: #ffd180,
-    $--theme-background: #2d1000,
-    
-    $--theme-background-hover: rgba(255,255,255, 0.05),
-    $--theme-background-active: rgba(#ffd180, 0.24),
-    $--theme-scrollbar: rgba(255,255,255, 0.25),
-    $--theme-color-active: rgb(255,255,255),
-    $--theme-color-black: rgb(255,255,255),
-    $--theme-color-white: rgb(0,0,0),
+$map-global-colors-dark: (
+    --theme-color: #ffffff,
+    --theme-background-scrollbar: #ffffff
 );
 
 :root {
-    @include spread-map($theme-map-default);
-    &.dark {
-        @include spread-map($theme-map-default-dark);
+  @include spread-map-colors($map-global-colors);
+  @include spread-map-colors($theme-map-default);
+  &.dark {
+    @include spread-map-colors($map-global-colors-dark);
+    @include spread-map-colors($theme-map-default-dark);
+  }
+  &.theme {
+    &--default:not(.dark) {
+      @include spread-map-colors($theme-map-default);
     }
-    &.theme {
-        &--default:not(.dark) {
-            @include spread-map($theme-map-default);
-        }
-        &--default.dark {
-            @include spread-map($theme-map-default-dark);
-        }
-        &--green:not(.dark) {
-            @include spread-map($theme-map-green);
-        }
-        &--green.dark {
-            @include spread-map($theme-map-green-dark);
-        }
-        &--orange:not(.dark) {
-            @include spread-map($theme-map-orange);
-        }
-        &--orange.dark {
-            @include spread-map($theme-map-orange-dark);
-        }
+    &--default.dark {
+      @include spread-map-colors($theme-map-default-dark);
     }
+    &--green:not(.dark) {
+      @include spread-map-colors($theme-map-green);
+    }
+    &--green.dark {
+      @include spread-map-colors($theme-map-green-dark);
+    }
+    &--orange:not(.dark) {
+      @include spread-map-colors($theme-map-orange);
+    }
+    &--orange.dark {
+      @include spread-map-colors($theme-map-orange-dark);
+    }
+  }
 }

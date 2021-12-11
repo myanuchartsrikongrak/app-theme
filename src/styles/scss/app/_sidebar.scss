@@ -1,7 +1,6 @@
 aside.sidebar {
     display: block;
     padding-top: 10px;
-    color: rgba(0, 0, 0, 0.54);
     margin-top: $header-height;
     .nav-sidebar-main {
         list-style-type: none;
@@ -16,7 +15,6 @@ aside.sidebar {
             >.btn {
                 padding: 10px;
                 width: 100%;
-                color: inherit;
                 padding-left: 0px;
                 padding-right: 0px;
                 font-size: 13px;
@@ -25,41 +23,37 @@ aside.sidebar {
                 }
                 i {
                     font-size: 22px;
-                    color: theme-var($--theme-color-black);
-                    opacity: .35;
+                    color: rgba(var(--theme-color-rgb), 0.45);
                 }
                 span {
                     margin-top: 5px;
                     display: block;
                     font-weight: 600;
-                    color: theme-var($--theme-color-black);
-                    opacity: .8;
+                    color: rgba(var(--theme-color-rgb), 0.45);
                 }
                 &:hover {
-                    background: theme-var($--theme-background-hover);
+                    background-color: rgba(var(--theme-color-rgb), 0.05);
                 }
                 &:active, &:focus {
                     box-shadow: unset;
                 }
             }
             &.active {
-                color: theme-var($--theme-primary);
+                color: var(--theme-primary);
                 >.btn {
                     position: relative;
-                    opacity: 1;
                     &:before {
                         content: "";
                         height: 100%;
                         width: 5px;
-                        background-color: theme-var($--theme-primary);
+                        background-color: var(--theme-primary);
                         position: absolute;
                         left: -11px;
                         border-radius: 10px;
                         top: 0;
                     }
                     span, i {
-                        color: theme-var($--theme-primary);
-                        opacity: 1;
+                        color: var(--theme-primary);
                     }
                     &+ul {
                         display: block;
@@ -78,7 +72,6 @@ aside.sidebar {
             padding-top: 0px!important;
             padding-bottom: 0px!important;
         }
-        // z-index: 100;
         width: calc(#{$sub-sidebar-width});
         padding: 0px;
         list-style-type: none;
@@ -87,7 +80,7 @@ aside.sidebar {
         top: 0px;
         left: $main-sidebar-width;
         padding-top: 10px!important;
-        color: rgba(0, 0, 0, 0.54);
+        color: rgba(var(--theme-color-rgb), 0.85);
         padding-left: 5px;
         margin-top: $header-height;
         height: calc(100vh - #{$header-height});
@@ -104,49 +97,42 @@ aside.sidebar {
             &.label {
                 text-align: left;
                 font-size: 10px;
-                font-weight: 600;
-                color: theme-var($--theme-primary);
+                font-weight: 700;
+                color: var(--theme-primary);
                 text-transform: uppercase;
                 padding: 3px 10px;
                 margin-top: 15px;
             }
             a {
-                color: theme-var($--theme-color-black);
+                color: rgba(var(--theme-color-rgb), 0.85);
                 width: 100%;
                 padding: 7px 15px 7px 15px;
                 font-size: 13px;
                 text-decoration: none;
-                // font-weight: 500;
-                opacity: .65;
                 i {
                     margin-right: 10px;
                     font-size: 13px;
-                    color: theme-var($--theme-color-black);
-                    opacity: .65;
+                    color: rgba(var(--theme-color-rgb), 0.85);
                 }
             }
             &.active {
-                background-color: theme-var($--theme-background-active);
+                background-color: rgba(var(--theme-secondary-rgb), 0.24);
                 a {
-                    color: theme-var($--theme-color-active);
-                    opacity: 1;
+                    color:var(--theme-color-active);
                     i {
-                        opacity: 1;
-                        color: theme-var($--theme-color-active);
+                        color: var(--theme-color-active);
                     }
                 }
             }
             &:hover:not(.label) {
                 cursor: pointer;
-                background-color: theme-var($--theme-background-hover);
+                background-color: rgba(var(--theme-color-rgb), 0.05);
                 &.active {
-                    background-color: theme-var($--theme-background-active);
+                    background-color: rgba(var(--theme-secondary-rgb), 0.24);
                     a {
-                        color: theme-var($--theme-color-active);
-                        opacity: 1;
+                        color: var(--theme-color-active);
                         i {
-                            opacity: 1;
-                            color: theme-var($--theme-color-active);
+                            color: var(--theme-color-active);
                         }
                     }
                 }

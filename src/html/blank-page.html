@@ -1,20 +1,33 @@
 @@include('./__root/_top.html')
-    <div class="breadcrumb-section">
-        <nav>
-            <ol class="breadcrumb">
-                <li>
-                    <h4>Blank Page</h4>
-                </li>
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Example Pages</a></li>
-                <li class="breadcrumb-item"><span>Blank Page</span></li>
-            </ol>
-        </nav>
-    </div>
+<div class="breadcrumb-section">
+    <nav>
+        <ol class="breadcrumb">
+            <li>
+                <h4>Blank Page</h4>
+            </li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Example Pages</a></li>
+            <li class="breadcrumb-item"><span>Blank Page</span></li>
+        </ol>
+    </nav>
+</div>
+<div>
+    @@include('./_partials/_test_theme.html')
     <div>
-        @@include('./_partials/_test_theme.html')
-        <div>
-            blank page
+        blank page
+        <div class="card">
+            <div class="card-header">
+                Header
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer">
+                Footer
+            </div>
         </div>
     </div>
+</div>
 @@include('./__root/_bottom.html')

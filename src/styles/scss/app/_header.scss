@@ -1,9 +1,9 @@
 aside.header {
     width: 100%;
     position: fixed;
-    background-color: theme-var($--theme-background);
+    background-color: var(--theme-background);
     .navbar {
-        background-color: theme-var($--theme-background);
+        background-color: var(--theme-background);
         .container-fluid {
             display: inline-flex;
             padding: 0px;
@@ -17,10 +17,10 @@ aside.header {
             button {
                 i {
                     font-size: 18px;
-                    color: theme-var($--theme-primary);
+                    color: rgba(var(--theme-color-rgb), 0.65);
                 }
                 &:hover {
-                    background-color: theme-var($--theme-background-hover);
+                    background-color: var(--theme-background-hover);
                 }
                 &:focus, &:active {
                     box-shadow: unset;
@@ -28,7 +28,7 @@ aside.header {
             }
         }
         .navbar-brand {
-            color: theme-var($--theme-primary);
+            color: var(--theme-color-active);
             margin: 0px;
             width: $sub-sidebar-width;
             padding-left: 15px;

@@ -1,83 +1,83 @@
 :root {
+  --theme-color: #000000;
+  --theme-color-rgb: 0, 0, 0;
+  --theme-background-scrollbar: #000000;
+  --theme-background-scrollbar-rgb: 0, 0, 0;
   --theme-primary: #283593;
+  --theme-primary-rgb: 40, 53, 147;
   --theme-secondary: #8c9eff;
+  --theme-secondary-rgb: 140, 158, 255;
   --theme-background: #fcfcfe;
-  --theme-background-hover: rgba(80, 80, 80, 0.05);
-  --theme-background-active: rgba(140, 158, 255, 0.24);
-  --theme-scrollbar: rgba(0, 0, 0, 0.25);
+  --theme-background-rgb: 252, 252, 254;
   --theme-color-active: #283593;
-  --theme-color-black: black;
-  --theme-color-white: white; }
+  --theme-color-active-rgb: 40, 53, 147; }
   :root.dark {
-    --theme-primary: #5c6bc0;
+    --theme-color: #ffffff;
+    --theme-color-rgb: 255, 255, 255;
+    --theme-background-scrollbar: #ffffff;
+    --theme-background-scrollbar-rgb: 255, 255, 255;
+    --theme-primary: #448aff;
+    --theme-primary-rgb: 68, 138, 255;
     --theme-secondary: #82b1ff;
+    --theme-secondary-rgb: 130, 177, 255;
     --theme-background: #0c1024;
-    --theme-background-hover: rgba(255, 255, 255, 0.05);
-    --theme-background-active: rgba(130, 177, 255, 0.24);
-    --theme-scrollbar: rgba(255, 255, 255, 0.25);
-    --theme-color-active: white;
-    --theme-color-black: white;
-    --theme-color-white: black; }
+    --theme-background-rgb: 12, 16, 36;
+    --theme-color-active: #ffffff;
+    --theme-color-active-rgb: 255, 255, 255; }
   :root.theme--default:not(.dark) {
     --theme-primary: #283593;
+    --theme-primary-rgb: 40, 53, 147;
     --theme-secondary: #8c9eff;
+    --theme-secondary-rgb: 140, 158, 255;
     --theme-background: #fcfcfe;
-    --theme-background-hover: rgba(80, 80, 80, 0.05);
-    --theme-background-active: rgba(140, 158, 255, 0.24);
-    --theme-scrollbar: rgba(0, 0, 0, 0.25);
+    --theme-background-rgb: 252, 252, 254;
     --theme-color-active: #283593;
-    --theme-color-black: black;
-    --theme-color-white: white; }
+    --theme-color-active-rgb: 40, 53, 147; }
   :root.theme--default.dark {
-    --theme-primary: #5c6bc0;
+    --theme-primary: #448aff;
+    --theme-primary-rgb: 68, 138, 255;
     --theme-secondary: #82b1ff;
+    --theme-secondary-rgb: 130, 177, 255;
     --theme-background: #0c1024;
-    --theme-background-hover: rgba(255, 255, 255, 0.05);
-    --theme-background-active: rgba(130, 177, 255, 0.24);
-    --theme-scrollbar: rgba(255, 255, 255, 0.25);
-    --theme-color-active: white;
-    --theme-color-black: white;
-    --theme-color-white: black; }
+    --theme-background-rgb: 12, 16, 36;
+    --theme-color-active: #ffffff;
+    --theme-color-active-rgb: 255, 255, 255; }
   :root.theme--green:not(.dark) {
     --theme-primary: #008573;
+    --theme-primary-rgb: 0, 133, 115;
     --theme-secondary: #64ffda;
+    --theme-secondary-rgb: 100, 255, 218;
     --theme-background: #fbfdfd;
-    --theme-background-hover: rgba(80, 80, 80, 0.05);
-    --theme-background-active: rgba(100, 255, 218, 0.24);
-    --theme-scrollbar: rgba(0, 0, 0, 0.25);
+    --theme-background-rgb: 251, 253, 253;
     --theme-color-active: #008573;
-    --theme-color-black: black;
-    --theme-color-white: white; }
+    --theme-color-active-rgb: 0, 133, 115; }
   :root.theme--green.dark {
     --theme-primary: #00bfa5;
+    --theme-primary-rgb: 0, 191, 165;
     --theme-secondary: #a7ffeb;
+    --theme-secondary-rgb: 167, 255, 235;
     --theme-background: #001412;
-    --theme-background-hover: rgba(255, 255, 255, 0.05);
-    --theme-background-active: rgba(167, 255, 235, 0.24);
-    --theme-scrollbar: rgba(255, 255, 255, 0.25);
-    --theme-color-active: white;
-    --theme-color-black: white;
-    --theme-color-white: black; }
+    --theme-background-rgb: 0, 20, 18;
+    --theme-color-active: #ffffff;
+    --theme-color-active-rgb: 255, 255, 255; }
   :root.theme--orange:not(.dark) {
     --theme-primary: #ff3d00;
+    --theme-primary-rgb: 255, 61, 0;
     --theme-secondary: #ff9e80;
+    --theme-secondary-rgb: 255, 158, 128;
     --theme-background: #fffdfb;
-    --theme-background-hover: rgba(80, 80, 80, 0.05);
-    --theme-background-active: rgba(255, 158, 128, 0.24);
-    --theme-scrollbar: rgba(0, 0, 0, 0.25);
+    --theme-background-rgb: 255, 253, 251;
     --theme-color-active: #ff3d00;
-    --theme-color-black: black;
-    --theme-color-white: white; }
+    --theme-color-active-rgb: 255, 61, 0; }
   :root.theme--orange.dark {
     --theme-primary: #ff9100;
+    --theme-primary-rgb: 255, 145, 0;
     --theme-secondary: #ffd180;
+    --theme-secondary-rgb: 255, 209, 128;
     --theme-background: #2d1000;
-    --theme-background-hover: rgba(255, 255, 255, 0.05);
-    --theme-background-active: rgba(255, 209, 128, 0.24);
-    --theme-scrollbar: rgba(255, 255, 255, 0.25);
-    --theme-color-active: white;
-    --theme-color-black: white;
-    --theme-color-white: black; }
+    --theme-background-rgb: 45, 16, 0;
+    --theme-color-active: #ffffff;
+    --theme-color-active-rgb: 255, 255, 255; }
 
 aside.header {
   width: 100%;
@@ -96,13 +96,13 @@ aside.header {
       display: inline-block; }
       aside.header .navbar .navbar-toggle button i {
         font-size: 18px;
-        color: var(--theme-primary); }
+        color: rgba(var(--theme-color-rgb), 0.65); }
       aside.header .navbar .navbar-toggle button:hover {
         background-color: var(--theme-background-hover); }
       aside.header .navbar .navbar-toggle button:focus, aside.header .navbar .navbar-toggle button:active {
         box-shadow: unset; }
     aside.header .navbar .navbar-brand {
-      color: var(--theme-primary);
+      color: var(--theme-color-active);
       margin: 0px;
       width: 220px;
       padding-left: 15px;
@@ -114,7 +114,6 @@ aside.header {
 aside.sidebar {
   display: block;
   padding-top: 10px;
-  color: rgba(0, 0, 0, 0.54);
   margin-top: 56px; }
   aside.sidebar .nav-sidebar-main {
     list-style-type: none;
@@ -129,7 +128,6 @@ aside.sidebar {
       aside.sidebar .nav-sidebar-main > li > .btn {
         padding: 10px;
         width: 100%;
-        color: inherit;
         padding-left: 0px;
         padding-right: 0px;
         font-size: 13px; }
@@ -137,23 +135,20 @@ aside.sidebar {
           pointer-events: none; }
         aside.sidebar .nav-sidebar-main > li > .btn i {
           font-size: 22px;
-          color: var(--theme-color-black);
-          opacity: .35; }
+          color: rgba(var(--theme-color-rgb), 0.45); }
         aside.sidebar .nav-sidebar-main > li > .btn span {
           margin-top: 5px;
           display: block;
           font-weight: 600;
-          color: var(--theme-color-black);
-          opacity: .8; }
+          color: rgba(var(--theme-color-rgb), 0.45); }
         aside.sidebar .nav-sidebar-main > li > .btn:hover {
-          background: var(--theme-background-hover); }
+          background-color: rgba(var(--theme-color-rgb), 0.05); }
         aside.sidebar .nav-sidebar-main > li > .btn:active, aside.sidebar .nav-sidebar-main > li > .btn:focus {
           box-shadow: unset; }
       aside.sidebar .nav-sidebar-main > li.active {
         color: var(--theme-primary); }
         aside.sidebar .nav-sidebar-main > li.active > .btn {
-          position: relative;
-          opacity: 1; }
+          position: relative; }
           aside.sidebar .nav-sidebar-main > li.active > .btn:before {
             content: "";
             height: 100%;
@@ -164,8 +159,7 @@ aside.sidebar {
             border-radius: 10px;
             top: 0; }
           aside.sidebar .nav-sidebar-main > li.active > .btn span, aside.sidebar .nav-sidebar-main > li.active > .btn i {
-            color: var(--theme-primary);
-            opacity: 1; }
+            color: var(--theme-primary); }
           aside.sidebar .nav-sidebar-main > li.active > .btn + ul {
             display: block; }
         aside.sidebar .nav-sidebar-main > li.active .nav-sidebar-children {
@@ -179,7 +173,7 @@ aside.sidebar {
     top: 0px;
     left: 120px;
     padding-top: 10px !important;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(var(--theme-color-rgb), 0.85);
     padding-left: 5px;
     margin-top: 56px;
     height: calc(100vh - 56px);
@@ -201,41 +195,35 @@ aside.sidebar {
       aside.sidebar .nav-sidebar-children li.label {
         text-align: left;
         font-size: 10px;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--theme-primary);
         text-transform: uppercase;
         padding: 3px 10px;
         margin-top: 15px; }
       aside.sidebar .nav-sidebar-children li a {
-        color: var(--theme-color-black);
+        color: rgba(var(--theme-color-rgb), 0.85);
         width: 100%;
         padding: 7px 15px 7px 15px;
         font-size: 13px;
-        text-decoration: none;
-        opacity: .65; }
+        text-decoration: none; }
         aside.sidebar .nav-sidebar-children li a i {
           margin-right: 10px;
           font-size: 13px;
-          color: var(--theme-color-black);
-          opacity: .65; }
+          color: rgba(var(--theme-color-rgb), 0.85); }
       aside.sidebar .nav-sidebar-children li.active {
-        background-color: var(--theme-background-active); }
+        background-color: rgba(var(--theme-secondary-rgb), 0.24); }
         aside.sidebar .nav-sidebar-children li.active a {
-          color: var(--theme-color-active);
-          opacity: 1; }
+          color: var(--theme-color-active); }
           aside.sidebar .nav-sidebar-children li.active a i {
-            opacity: 1;
             color: var(--theme-color-active); }
       aside.sidebar .nav-sidebar-children li:hover:not(.label) {
         cursor: pointer;
-        background-color: var(--theme-background-hover); }
+        background-color: rgba(var(--theme-color-rgb), 0.05); }
         aside.sidebar .nav-sidebar-children li:hover:not(.label).active {
-          background-color: var(--theme-background-active); }
+          background-color: rgba(var(--theme-secondary-rgb), 0.24); }
           aside.sidebar .nav-sidebar-children li:hover:not(.label).active a {
-            color: var(--theme-color-active);
-            opacity: 1; }
+            color: var(--theme-color-active); }
             aside.sidebar .nav-sidebar-children li:hover:not(.label).active a i {
-              opacity: 1;
               color: var(--theme-color-active); }
   aside.sidebar .nav-sidebar + .bg-sidebar {
     width: calc(120px);
@@ -270,23 +258,18 @@ body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
         font-weight: 600; }
       .breadcrumb-section .breadcrumb li.breadcrumb-item {
         margin-right: 10px;
-        color: var(--theme-color-black);
-        opacity: .65; }
+        color: var(--theme-color); }
         .breadcrumb-section .breadcrumb li.breadcrumb-item a, .breadcrumb-section .breadcrumb li.breadcrumb-item span {
           text-decoration: none;
-          color: var(--theme-color-black);
+          color: inherit;
           display: table-cell;
           vertical-align: bottom; }
-        .breadcrumb-section .breadcrumb li.breadcrumb-item:hover:not(:last-of-type) {
-          opacity: .85; }
         .breadcrumb-section .breadcrumb li.breadcrumb-item:before {
           position: absolute;
           bottom: 0px;
           left: -5px; }
       .breadcrumb-section .breadcrumb li:last-of-type {
-        color: var(--theme-color-black);
-        font-weight: 500;
-        opacity: 1; }
+        color: rgba(var(--theme-color-rgb), 0.65); }
 
 .scrollbar-macosx > .scroll-element,
 .scrollbar-macosx > .scroll-element div {
@@ -308,7 +291,7 @@ body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
   display: none; }
 
 .scrollbar-macosx > .scroll-element .scroll-bar {
-  background-color: var(--theme-scrollbar);
+  background-color: rgba(var(--theme-background-scrollbar-rgb), 0.25);
   display: block;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
@@ -375,7 +358,9 @@ body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
 
 body {
   background-color: var(--theme-background);
-  overflow: auto; }
+  overflow: auto;
+  color: rgba(var(--theme-color-rgb), 0.45);
+  font-family: 'Maven Pro'; }
 
 .app-layout {
   display: flex;

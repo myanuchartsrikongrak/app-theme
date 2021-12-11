@@ -19,22 +19,21 @@
                     font-size: 24px;
                     margin-bottom: 0px;
                     margin-right: 20px;
-                    color: theme-var($--theme-primary);
+                    color: var(--theme-primary);
                     font-weight: 600;
                 }
             }
             &.breadcrumb-item {
                 margin-right: 10px;
-                color: theme-var($--theme-color-black);
-                opacity: .65;
+                color: var(--theme-color);
                 a, span {
                     text-decoration: none;
-                    color: theme-var($--theme-color-black);
+                    color: inherit;
                     display: table-cell;
                     vertical-align: bottom;
                 }
                 &:hover:not(:last-of-type) {
-                    opacity: .85;
+                    
                 }
                 &:before {
                     position: absolute;
@@ -43,9 +42,7 @@
                 }
             }
             &:last-of-type {
-                color: theme-var($--theme-color-black);
-                font-weight: 500;
-                opacity: 1;
+                color: rgba(var(--theme-color-rgb), 0.65);
             }
         }
     }

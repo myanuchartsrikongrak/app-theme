@@ -19,9 +19,8 @@
 
 .scrollbar-macosx > .scroll-element .scroll-element_track { display: none; }
 .scrollbar-macosx > .scroll-element .scroll-bar {
-    background-color: var(--theme-scrollbar);
+    background-color: rgba(var(--theme-background-scrollbar-rgb), 0.25);
     display: block;
-
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;

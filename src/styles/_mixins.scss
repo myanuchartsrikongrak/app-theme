@@ -1,16 +1,24 @@
-@mixin spread-map($map: ()) {
+@mixin spread-map-colors($map: ()) {
     @each $key, $value in $map {
-        #{$key}: $value;
+        #{$key}: #{$value};
+        #{"#{$key}-rgb"}: colorToRGB($value);
     }
 }
 
-@function theme-var($key, $fallback: null, $map: $theme-map-default) {
-    @if not map-has-key($map, $key) {
-        @error "key: '#{$key}', is not a key in map: #{$map}";
+@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{"$#{$key}"}: #{$value};
     }
+}
+
+@function theme-var($key, $fallback: null) {
     @if ($fallback) {
         @return var($key, $fallback);
     } @else {
         @return var($key);
     }
+}
+
+@function colorToRGB($color) {
+    @return red($color), green($color), blue($color);
 }
