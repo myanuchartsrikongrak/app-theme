@@ -135,12 +135,12 @@ aside.sidebar {
           pointer-events: none; }
         aside.sidebar .nav-sidebar-main > li > .btn i {
           font-size: 22px;
-          color: rgba(var(--theme-color-rgb), 0.45); }
+          color: rgba(var(--theme-color-rgb), 0.65); }
         aside.sidebar .nav-sidebar-main > li > .btn span {
           margin-top: 5px;
           display: block;
           font-weight: 600;
-          color: rgba(var(--theme-color-rgb), 0.45); }
+          color: rgba(var(--theme-color-rgb), 0.65); }
         aside.sidebar .nav-sidebar-main > li > .btn:hover {
           background-color: rgba(var(--theme-color-rgb), 0.05); }
         aside.sidebar .nav-sidebar-main > li > .btn:active, aside.sidebar .nav-sidebar-main > li > .btn:focus {
@@ -201,15 +201,16 @@ aside.sidebar {
         padding: 3px 10px;
         margin-top: 15px; }
       aside.sidebar .nav-sidebar-children li a {
-        color: rgba(var(--theme-color-rgb), 0.85);
+        color: rgba(var(--theme-color-rgb), 0.65);
         width: 100%;
         padding: 7px 15px 7px 15px;
         font-size: 13px;
-        text-decoration: none; }
+        text-decoration: none;
+        font-weight: 400; }
         aside.sidebar .nav-sidebar-children li a i {
           margin-right: 10px;
           font-size: 13px;
-          color: rgba(var(--theme-color-rgb), 0.85); }
+          color: rgba(var(--theme-color-rgb), 0.65); }
       aside.sidebar .nav-sidebar-children li.active {
         background-color: rgba(var(--theme-secondary-rgb), 0.24); }
         aside.sidebar .nav-sidebar-children li.active a {

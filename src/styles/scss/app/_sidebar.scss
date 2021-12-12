@@ -23,13 +23,13 @@ aside.sidebar {
                 }
                 i {
                     font-size: 22px;
-                    color: rgba(var(--theme-color-rgb), 0.45);
+                    color: rgba(var(--theme-color-rgb), 0.65);
                 }
                 span {
                     margin-top: 5px;
                     display: block;
                     font-weight: 600;
-                    color: rgba(var(--theme-color-rgb), 0.45);
+                    color: rgba(var(--theme-color-rgb), 0.65);
                 }
                 &:hover {
                     background-color: rgba(var(--theme-color-rgb), 0.05);
@@ -104,21 +104,22 @@ aside.sidebar {
                 margin-top: 15px;
             }
             a {
-                color: rgba(var(--theme-color-rgb), 0.85);
+                color: rgba(var(--theme-color-rgb), 0.65);
                 width: 100%;
                 padding: 7px 15px 7px 15px;
                 font-size: 13px;
                 text-decoration: none;
+                font-weight: 400;
                 i {
                     margin-right: 10px;
                     font-size: 13px;
-                    color: rgba(var(--theme-color-rgb), 0.85);
+                    color: rgba(var(--theme-color-rgb), 0.65);
                 }
             }
             &.active {
                 background-color: rgba(var(--theme-secondary-rgb), 0.24);
                 a {
-                    color:var(--theme-color-active);
+                    color: var(--theme-color-active);
                     i {
                         color: var(--theme-color-active);
                     }
