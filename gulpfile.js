@@ -63,7 +63,7 @@ exports.includeHTML = includeHTML;
 exports.default = async function() {
   // Init serve files from the build folder
   server.init({
-    port: 3200,
+    port: 3300,
     ui: false,
     server: {
       baseDir: paths.scripts.dest

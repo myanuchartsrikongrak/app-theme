@@ -57,7 +57,8 @@ const _handleVendor__jqueyr_scrollbar = function () {
     $(`[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar({
         ignoreOverlay: true,
         ignoreMobile: true,
-        disableBodyScroll : false
+        disableBodyScroll : false,
+        width: 80
     });
 };
 
@@ -96,16 +97,22 @@ const _handle_sidebar_state = function() {
 
 const _handle_sidebar_actions = function() {
     const sidebar = _Helpers.Selector.findOne(`.nav-sidebar`);
-
+    
+    sidebar.classList.add('show-children');
     const mainSidebarItems = _Helpers.Selector.find(`.sidebar-main-item`);
     mainSidebarItems.forEach((mainItem, index) => {
         const button = _Helpers.Selector.findOne('a.btn, button.btn', mainItem);
         if(button) {
             button.addEventListener('click', () => {
+                const scrollsidebar = _Helpers.Selector.findOne(`.scroll-wrapper.nav-sidebar`);
                 mainSidebarItems.forEach((mainItemTemp, indexTemp) => {
                     mainItemTemp.classList.remove('active');
                     if(_Helpers.Selector.findOne('ul.nav-sidebar-children', mainItem)) {
                         sidebar.classList.add('show-children');
+                        scrollsidebar.classList.add('show-children');
+                    } else {
+                        sidebar.classList.remove('show-children');
+                        scrollsidebar.classList.remove('show-children');
                     }
                 });
                 document.body.classList.add('show-sidebar');

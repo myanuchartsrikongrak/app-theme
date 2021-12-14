@@ -127,15 +127,21 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
 var _handle_sidebar_actions = function _handle_sidebar_actions() {
     var sidebar = _Helpers.Selector.findOne(".nav-sidebar");
 
+    sidebar.classList.add("show-children");
     var mainSidebarItems = _Helpers.Selector.find(".sidebar-main-item");
     mainSidebarItems.forEach(function (mainItem, index) {
         var button = _Helpers.Selector.findOne("a.btn, button.btn", mainItem);
         if (button) {
             button.addEventListener("click", function () {
+                var scrollsidebar = _Helpers.Selector.findOne(".scroll-wrapper.nav-sidebar");
                 mainSidebarItems.forEach(function (mainItemTemp, indexTemp) {
                     mainItemTemp.classList.remove("active");
                     if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
                         sidebar.classList.add("show-children");
+                        scrollsidebar.classList.add("show-children");
+                    } else {
+                        sidebar.classList.remove("show-children");
+                        scrollsidebar.classList.remove("show-children");
                     }
                 });
                 document.body.classList.add("show-sidebar");
