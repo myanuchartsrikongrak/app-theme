@@ -78,6 +78,24 @@
     --theme-background-rgb: 45, 16, 0;
     --theme-color-active: #ffffff;
     --theme-color-active-rgb: 255, 255, 255; }
+  :root.theme--gray:not(.dark) {
+    --theme-primary: #424242;
+    --theme-primary-rgb: 66, 66, 66;
+    --theme-secondary: #bdbdbd;
+    --theme-secondary-rgb: 189, 189, 189;
+    --theme-background: #fbfdfd;
+    --theme-background-rgb: 251, 253, 253;
+    --theme-color-active: #424242;
+    --theme-color-active-rgb: 66, 66, 66; }
+  :root.theme--gray.dark {
+    --theme-primary: #757575;
+    --theme-primary-rgb: 117, 117, 117;
+    --theme-secondary: #e0e0e0;
+    --theme-secondary-rgb: 224, 224, 224;
+    --theme-background: #001412;
+    --theme-background-rgb: 0, 20, 18;
+    --theme-color-active: #ffffff;
+    --theme-color-active-rgb: 255, 255, 255; }
 
 aside.header {
   width: 100%;

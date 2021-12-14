@@ -87,7 +87,8 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
     $("[data-vendor=\"jquery.scrollbar\"]").addClass("scrollbar").addClass("scrollbar-macosx").scrollbar({
         ignoreOverlay: true,
         ignoreMobile: true,
-        disableBodyScroll: false
+        disableBodyScroll: false,
+        width: 80
     });
 };
 
@@ -224,7 +225,7 @@ var TestApp = (function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     App.init({
-        colors: ["default", "green", "orange"]
+        colors: ["default", "green", "orange", "gray"]
     });
     TestApp.init();
 }, false);

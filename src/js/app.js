@@ -194,7 +194,7 @@ var TestApp = (function () {
 
 document.addEventListener('DOMContentLoaded', function(){ 
     App.init({
-        colors: ["default", "green", "orange"]
+        colors: ["default", "green", "orange", "gray"]
     });
     TestApp.init();
 }, false);

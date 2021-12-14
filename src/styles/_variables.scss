@@ -1,6 +1,7 @@
 @import "themes/variables_default";
 @import "themes/variables_green";
 @import "themes/variables_orange";
+@import "themes/variables_gray";
 
 $header-height: 56px !default;
 $main-sidebar-width: 80px !default;
@@ -40,6 +41,12 @@ $map-global-colors-dark: (
     }
     &--orange.dark {
       @include spread-map-colors($theme-map-orange-dark);
+    }
+    &--gray:not(.dark) {
+      @include spread-map-colors($theme-map-gray);
+    }
+    &--gray.dark {
+      @include spread-map-colors($theme-map-gray-dark);
     }
   }
 }
