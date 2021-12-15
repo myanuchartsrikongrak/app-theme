@@ -10,3 +10,14 @@ $theme-map-green-dark: (
   --theme-background: #001412,
   --theme-color-active: #ffffff,
 );
+
+:root {
+  &.theme {
+    &--green:not(.dark) {
+      @include spread-map-colors($theme-map-green);
+    }
+    &--green.dark {
+      @include spread-map-colors($theme-map-green-dark);
+    }
+  }
+}

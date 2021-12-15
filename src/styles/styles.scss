@@ -1,5 +1,12 @@
 @import "mixins";
+
 @import "variables";
+
+@import "themes/variables_default";
+@import "themes/variables_green";
+@import "themes/variables_orange";
+@import "themes/variables_gray";
+
 
 @import "scss/app/header";
 @import "scss/app/sidebar";

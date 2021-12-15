@@ -10,3 +10,14 @@ $theme-map-gray-dark: (
   --theme-background: #001412,
   --theme-color-active: #ffffff,
 );
+
+:root {
+  &.theme {
+    &--gray:not(.dark) {
+      @include spread-map-colors($theme-map-gray);
+    }
+    &--gray.dark {
+      @include spread-map-colors($theme-map-gray-dark);
+    }
+  }
+}

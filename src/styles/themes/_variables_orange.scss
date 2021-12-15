@@ -10,3 +10,14 @@ $theme-map-orange-dark: (
   --theme-background: #2d1000,
   --theme-color-active: #ffffff,
 );
+
+:root {
+  &.theme {
+    &--orange:not(.dark) {
+      @include spread-map-colors($theme-map-orange);
+    }
+    &--orange.dark {
+      @include spread-map-colors($theme-map-orange-dark);
+    }
+  }
+}
