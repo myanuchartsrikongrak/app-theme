@@ -54,12 +54,39 @@ const _Helpers = (function () {
 })();
 
 const _handleVendor__jqueyr_scrollbar = function () {
-    $(`[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar({
+    const options = {
         ignoreOverlay: true,
         ignoreMobile: true,
-        disableBodyScroll : false,
-        width: 80
-    });
+        disableBodyScroll : false
+    };
+
+    $(`#page-container[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar(Object.assign({
+        onScroll: (y, x) => {
+            var breadcrumb = _HelperSelector.findOne('.breadcrumb');
+            var breadcrumbHeader = _HelperSelector.findOne('#breadcrumb-header');
+            if(breadcrumb && breadcrumbHeader) {
+                var offsets = breadcrumb.getBoundingClientRect();
+                if(offsets.top <= 40) {
+                    breadcrumbHeader.classList.add('show');
+                } else if(offsets.top > 40) {
+                    breadcrumbHeader.classList.remove('show');
+                }
+            }
+        }
+    }, options));
+
+    $(`.sidebar [data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar(Object.assign({
+
+    }, options));
+};
+
+const _handle_breadcrumb = function() {
+    var breadcrumb = _HelperSelector.findOne('.breadcrumb');
+    var breadcrumbHeader = _HelperSelector.findOne('#breadcrumb-header');
+    if(breadcrumb && breadcrumbHeader) {
+        var breadcrumbText = _HelperSelector.findOne('li h4', breadcrumb).cloneNode(true);
+        breadcrumbHeader.appendChild(breadcrumbText);
+    }
 };
 
 const _handle_sidebar_state = function() {
@@ -169,9 +196,13 @@ var App = (function () {
             Object.assign(settings, options);
             this.theme = _AppTheme.init(settings.colors);
             this.helpers = _Helpers;
-            this.initSidebar();
             this.initVendor();
+            this.initBreadcrumb();
+            this.initSidebar();
             return this;
+        },
+        initBreadcrumb: function() {
+            _handle_breadcrumb();
         },
         initSidebar: function()  {
             _handle_sidebar_actions();

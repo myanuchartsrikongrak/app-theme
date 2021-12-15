@@ -2,6 +2,8 @@ aside.header {
     width: 100%;
     position: fixed;
     background-color: var(--theme-background);
+    z-index: 1;
+    overflow: hidden;
     .navbar {
         background-color: var(--theme-background);
         .container-fluid {
@@ -27,12 +29,36 @@ aside.header {
                 }
             }
         }
+        #breadcrumb-header {
+            padding-left: 10px;
+            h4 {
+                margin: 0px;
+                color: var(--theme-primary);
+                font-weight: 600;
+                transform: translateY($header-height);
+                transition: all .2s ease-in-out;
+            }
+            &.show {
+                h4 {
+                    transform: translateY(0px);
+                }
+            }
+        }
         .navbar-brand {
-            color: var(--theme-color-active);
             margin: 0px;
             width: $sub-sidebar-width;
             padding-left: 15px;
             font-weight: 600;
+            display: flex;
+            .logo {
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+            }
+            span {
+                line-height: 35px;
+                margin: 0px;
+            }
         }
         .navbar-items {
             display: inline-block;

@@ -1,7 +1,8 @@
 .breadcrumb-section {
     border-radius: 0.25rem;
+    background-color: rgba(var(--theme-secondary-rgb), 0.24);
     nav {
-        padding: 10px;
+        padding: 10px 20px;
         border-radius: 0.25rem;
     }
     .breadcrumb {
@@ -26,11 +27,15 @@
             &.breadcrumb-item {
                 margin-right: 10px;
                 color: var(--theme-color);
+                margin-top: 5px;
+                &:before {
+                    bottom: 2px!important;
+                }
                 a, span {
                     text-decoration: none;
                     color: inherit;
                     display: table-cell;
-                    vertical-align: bottom;
+                    // vertical-align: bottom;
                 }
                 &:hover:not(:last-of-type) {
                     

@@ -14,8 +14,20 @@ $map-global-colors-dark: (
 :root {
   @include spread-map-colors($map-global-colors);
   @include spread-map-colors($theme-map-default);
+  .logo {
+    filter: invert(0%);
+  }
+  .navbar-brand {
+    color: rgba(var(--theme-color-rgb), 0.85);
+  }
   &.dark {
     @include spread-map-colors($map-global-colors-dark);
     @include spread-map-colors($theme-map-default-dark);
+    .logo {
+      filter: invert(100%);
+    }
+    .navbar-brand {
+      color: #ffffff;
+    }
   }
 }
