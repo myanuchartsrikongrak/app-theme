@@ -73,8 +73,8 @@
   --theme-primary-rgb: 117, 117, 117;
   --theme-secondary: #e0e0e0;
   --theme-secondary-rgb: 224, 224, 224;
-  --theme-background: #001412;
-  --theme-background-rgb: 0, 20, 18;
+  --theme-background: #090e0f;
+  --theme-background-rgb: 9, 14, 15;
   --theme-color-active: #ffffff;
   --theme-color-active-rgb: 255, 255, 255; }
 
@@ -83,6 +83,8 @@
   --theme-color-rgb: 0, 0, 0;
   --theme-background-scrollbar: #000000;
   --theme-background-scrollbar-rgb: 0, 0, 0;
+  --theme-background-scrolled: #ffffff;
+  --theme-background-scrolled-rgb: 255, 255, 255;
   --theme-primary: #283593;
   --theme-primary-rgb: 40, 53, 147;
   --theme-secondary: #8c9eff;
@@ -100,6 +102,8 @@
     --theme-color-rgb: 255, 255, 255;
     --theme-background-scrollbar: #ffffff;
     --theme-background-scrollbar-rgb: 255, 255, 255;
+    --theme-background-scrolled: #191919;
+    --theme-background-scrolled-rgb: 25, 25, 25;
     --theme-primary: #448aff;
     --theme-primary-rgb: 68, 138, 255;
     --theme-secondary: #82b1ff;
@@ -119,8 +123,11 @@ aside.header {
   background-color: var(--theme-background);
   z-index: 1;
   overflow: hidden; }
+  aside.header.scrolled {
+    border-bottom: 1px solid rgba(var(--theme-color-active-rgb), 0.1); }
   aside.header .navbar {
-    background-color: var(--theme-background); }
+    height: 56px;
+    padding: 0px; }
     aside.header .navbar .container-fluid {
       display: inline-flex;
       padding: 0px;
@@ -152,15 +159,16 @@ aside.header {
         width: auto; }
         aside.header .navbar #breadcrumb-header .breadcrumb li {
           position: relative;
-          font-size: 13px;
+          font-size: 12px;
           display: table;
-          margin-top: 4px; }
+          margin-top: 3px; }
           aside.header .navbar #breadcrumb-header .breadcrumb li:before {
             bottom: 0px !important; }
           aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type {
             margin: 0px; }
             aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type h4 {
-              font-size: 20px; }
+              font-size: 18px;
+              margin-right: 10px; }
     aside.header .navbar .navbar-brand {
       margin: 0px;
       width: 200px;
@@ -190,7 +198,9 @@ aside.sidebar {
     width: 80px;
     padding-left: 8px;
     padding-right: 12px;
-    height: calc(100vh - 56px - 20px); }
+    height: calc(100vh - 56px - 20px);
+    margin-top: 5px;
+    margin-bottom: 5px; }
     aside.sidebar .nav-sidebar-main > li {
       text-align: center;
       position: inherit;

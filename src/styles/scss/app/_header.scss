@@ -4,8 +4,17 @@ aside.header {
     background-color: var(--theme-background);
     z-index: 1;
     overflow: hidden;
+    // -webkit-transition: background-color .1s ease-in; /* Safari */
+    // transition: background-color .1s ease-in;
+    // -webkit-transition-delay: .1s; /* Safari */
+    // transition-delay: .1s;
+    &.scrolled {
+        // background-color: var(--theme-background-scrolled)!important;
+        border-bottom: 1px solid rgba(var(--theme-color-active-rgb), .1);
+    }
     .navbar {
-        background-color: var(--theme-background);
+        height: $header-height;
+        padding: 0px;
         .container-fluid {
             display: inline-flex;
             padding: 0px;
@@ -48,16 +57,17 @@ aside.header {
                 width: auto;
                 li {
                     position: relative;
-                    font-size: 13px;
+                    font-size: 12px;
                     display: table;
-                    margin-top: 4px;
+                    margin-top: 3px;
                     &:before {
                         bottom: 0px!important;
                     }
                     &:first-of-type {
                         margin: 0px;
                         h4 {
-                            font-size: 20px;
+                            font-size: 18px;
+                            margin-right: 10px;
                         }
                     }
                 }

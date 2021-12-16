@@ -5,10 +5,12 @@ $sub-sidebar-width: 200px !default;
 $map-global-colors: (
     --theme-color: #000000,
     --theme-background-scrollbar: #000000,
+    --theme-background-scrolled: #ffffff,
 );
 $map-global-colors-dark: (
     --theme-color: #ffffff,
-    --theme-background-scrollbar: #ffffff
+    --theme-background-scrollbar: #ffffff,
+    --theme-background-scrolled: #191919,
 );
 
 :root {
