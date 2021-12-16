@@ -31,16 +31,35 @@ aside.header {
         }
         #breadcrumb-header {
             padding-left: 10px;
-            h4 {
-                margin: 0px;
-                color: var(--theme-primary);
-                font-weight: 600;
+            .breadcrumb {
                 transform: translateY($header-height);
                 transition: all .2s ease-in-out;
             }
             &.show {
-                h4 {
+                .breadcrumb {
                     transform: translateY(0px);
+                }
+            }
+            .breadcrumb {
+                padding: 10px 30px;
+                display: inline-flex;
+                margin: 0px;
+                padding: 0px;
+                width: auto;
+                li {
+                    position: relative;
+                    font-size: 13px;
+                    display: table;
+                    margin-top: 4px;
+                    &:before {
+                        bottom: 0px!important;
+                    }
+                    &:first-of-type {
+                        margin: 0px;
+                        h4 {
+                            font-size: 20px;
+                        }
+                    }
                 }
             }
         }

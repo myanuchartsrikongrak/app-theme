@@ -5,50 +5,51 @@
         padding: 10px 20px;
         border-radius: 0.25rem;
     }
-    .breadcrumb {
-        padding: 10px 30px;
-        display: inline-flex;
-        margin: 0px;
-        padding: 0px;
-        width: auto;
-        li {
-            position: relative;
-            font-size: 14px;
-            display: table;
-            &:first-of-type {
-                h4 {
-                    font-size: 24px;
-                    margin-bottom: 0px;
-                    margin-right: 20px;
-                    color: var(--theme-primary);
-                    font-weight: 600;
-                }
-            }
-            &.breadcrumb-item {
-                margin-right: 10px;
-                color: var(--theme-color);
-                margin-top: 5px;
-                &:before {
-                    bottom: 2px!important;
-                }
-                a, span {
-                    text-decoration: none;
-                    color: inherit;
-                    display: table-cell;
-                    // vertical-align: bottom;
-                }
-                &:hover:not(:last-of-type) {
-                    
-                }
-                &:before {
-                    position: absolute;
-                    bottom: 0px;
-                    left: -5px;
-                }
-            }
-            &:last-of-type {
-                color: rgba(var(--theme-color-rgb), 0.65);
+   
+}  
+.breadcrumb {
+    padding: 10px 30px;
+    display: inline-flex;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    li {
+        position: relative;
+        font-size: 14px;
+        display: table;
+        &:first-of-type {
+            h4 {
+                font-size: 24px;
+                margin-bottom: 0px;
+                margin-right: 20px;
+                color: var(--theme-primary);
+                font-weight: 600;
             }
         }
+        &.breadcrumb-item {
+            margin-right: 10px;
+            color: var(--theme-color);
+            margin-top: 5px;
+            &:before {
+                bottom: 2px!important;
+            }
+            a, span {
+                text-decoration: none;
+                color: inherit;
+                display: table-cell;
+                // vertical-align: bottom;
+            }
+            &:hover:not(:last-of-type) {
+                
+            }
+            &:before {
+                position: absolute;
+                bottom: 0px;
+                left: -5px;
+            }
+        }
+        &:last-of-type {
+            color: rgba(var(--theme-color-rgb), 0.65);
+        }
     }
-} 
+}

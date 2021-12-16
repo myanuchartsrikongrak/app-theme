@@ -62,8 +62,8 @@ const _handleVendor__jqueyr_scrollbar = function () {
 
     $(`#page-container[data-vendor="jquery.scrollbar"]`).addClass('scrollbar').addClass('scrollbar-macosx').scrollbar(Object.assign({
         onScroll: (y, x) => {
-            var breadcrumb = _HelperSelector.findOne('.breadcrumb');
-            var breadcrumbHeader = _HelperSelector.findOne('#breadcrumb-header');
+            var breadcrumb = _Helpers.Selector.findOne('.breadcrumb-section nav .breadcrumb');
+            var breadcrumbHeader = _Helpers.Selector.findOne('#breadcrumb-header');
             if(breadcrumb && breadcrumbHeader) {
                 var offsets = breadcrumb.getBoundingClientRect();
                 if(offsets.top <= 40) {
@@ -81,10 +81,11 @@ const _handleVendor__jqueyr_scrollbar = function () {
 };
 
 const _handle_breadcrumb = function() {
-    var breadcrumb = _HelperSelector.findOne('.breadcrumb');
-    var breadcrumbHeader = _HelperSelector.findOne('#breadcrumb-header');
+    var breadcrumb = _Helpers.Selector.findOne('.breadcrumb-section nav .breadcrumb');
+    var breadcrumbHeader = _Helpers.Selector.findOne('#breadcrumb-header');
     if(breadcrumb && breadcrumbHeader) {
-        var breadcrumbText = _HelperSelector.findOne('li h4', breadcrumb).cloneNode(true);
+        var breadcrumbText = breadcrumb.cloneNode(true);
+        breadcrumbHeader.innerHTML = "";
         breadcrumbHeader.appendChild(breadcrumbText);
     }
 };

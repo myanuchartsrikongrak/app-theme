@@ -139,14 +139,28 @@ aside.header {
         box-shadow: unset; }
     aside.header .navbar #breadcrumb-header {
       padding-left: 10px; }
-      aside.header .navbar #breadcrumb-header h4 {
-        margin: 0px;
-        color: var(--theme-primary);
-        font-weight: 600;
+      aside.header .navbar #breadcrumb-header .breadcrumb {
         transform: translateY(56px);
         transition: all .2s ease-in-out; }
-      aside.header .navbar #breadcrumb-header.show h4 {
+      aside.header .navbar #breadcrumb-header.show .breadcrumb {
         transform: translateY(0px); }
+      aside.header .navbar #breadcrumb-header .breadcrumb {
+        padding: 10px 30px;
+        display: inline-flex;
+        margin: 0px;
+        padding: 0px;
+        width: auto; }
+        aside.header .navbar #breadcrumb-header .breadcrumb li {
+          position: relative;
+          font-size: 13px;
+          display: table;
+          margin-top: 4px; }
+          aside.header .navbar #breadcrumb-header .breadcrumb li:before {
+            bottom: 0px !important; }
+          aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type {
+            margin: 0px; }
+            aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type h4 {
+              font-size: 20px; }
     aside.header .navbar .navbar-brand {
       margin: 0px;
       width: 200px;
@@ -297,38 +311,39 @@ body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
   .breadcrumb-section nav {
     padding: 10px 20px;
     border-radius: 0.25rem; }
-  .breadcrumb-section .breadcrumb {
-    padding: 10px 30px;
-    display: inline-flex;
-    margin: 0px;
-    padding: 0px;
-    width: auto; }
-    .breadcrumb-section .breadcrumb li {
-      position: relative;
-      font-size: 14px;
-      display: table; }
-      .breadcrumb-section .breadcrumb li:first-of-type h4 {
-        font-size: 24px;
-        margin-bottom: 0px;
-        margin-right: 20px;
-        color: var(--theme-primary);
-        font-weight: 600; }
-      .breadcrumb-section .breadcrumb li.breadcrumb-item {
-        margin-right: 10px;
-        color: var(--theme-color);
-        margin-top: 5px; }
-        .breadcrumb-section .breadcrumb li.breadcrumb-item:before {
-          bottom: 2px !important; }
-        .breadcrumb-section .breadcrumb li.breadcrumb-item a, .breadcrumb-section .breadcrumb li.breadcrumb-item span {
-          text-decoration: none;
-          color: inherit;
-          display: table-cell; }
-        .breadcrumb-section .breadcrumb li.breadcrumb-item:before {
-          position: absolute;
-          bottom: 0px;
-          left: -5px; }
-      .breadcrumb-section .breadcrumb li:last-of-type {
-        color: rgba(var(--theme-color-rgb), 0.65); }
+
+.breadcrumb {
+  padding: 10px 30px;
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
+  width: auto; }
+  .breadcrumb li {
+    position: relative;
+    font-size: 14px;
+    display: table; }
+    .breadcrumb li:first-of-type h4 {
+      font-size: 24px;
+      margin-bottom: 0px;
+      margin-right: 20px;
+      color: var(--theme-primary);
+      font-weight: 600; }
+    .breadcrumb li.breadcrumb-item {
+      margin-right: 10px;
+      color: var(--theme-color);
+      margin-top: 5px; }
+      .breadcrumb li.breadcrumb-item:before {
+        bottom: 2px !important; }
+      .breadcrumb li.breadcrumb-item a, .breadcrumb li.breadcrumb-item span {
+        text-decoration: none;
+        color: inherit;
+        display: table-cell; }
+      .breadcrumb li.breadcrumb-item:before {
+        position: absolute;
+        bottom: 0px;
+        left: -5px; }
+    .breadcrumb li:last-of-type {
+      color: rgba(var(--theme-color-rgb), 0.65); }
 
 .scrollbar-macosx > .scroll-element,
 .scrollbar-macosx > .scroll-element div {

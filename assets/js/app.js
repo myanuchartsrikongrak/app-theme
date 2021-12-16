@@ -92,8 +92,8 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
 
     $("#page-container[data-vendor=\"jquery.scrollbar\"]").addClass("scrollbar").addClass("scrollbar-macosx").scrollbar(Object.assign({
         onScroll: function (y, x) {
-            var breadcrumb = _HelperSelector.findOne(".breadcrumb");
-            var breadcrumbHeader = _HelperSelector.findOne("#breadcrumb-header");
+            var breadcrumb = _Helpers.Selector.findOne(".breadcrumb-section nav .breadcrumb");
+            var breadcrumbHeader = _Helpers.Selector.findOne("#breadcrumb-header");
             if (breadcrumb && breadcrumbHeader) {
                 var offsets = breadcrumb.getBoundingClientRect();
                 if (offsets.top <= 40) {
@@ -109,10 +109,11 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
 };
 
 var _handle_breadcrumb = function _handle_breadcrumb() {
-    var breadcrumb = _HelperSelector.findOne(".breadcrumb");
-    var breadcrumbHeader = _HelperSelector.findOne("#breadcrumb-header");
+    var breadcrumb = _Helpers.Selector.findOne(".breadcrumb-section nav .breadcrumb");
+    var breadcrumbHeader = _Helpers.Selector.findOne("#breadcrumb-header");
     if (breadcrumb && breadcrumbHeader) {
-        var breadcrumbText = _HelperSelector.findOne("li h4", breadcrumb).cloneNode(true);
+        var breadcrumbText = breadcrumb.cloneNode(true);
+        breadcrumbHeader.innerHTML = "";
         breadcrumbHeader.appendChild(breadcrumbText);
     }
 };
