@@ -97,10 +97,13 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
             var breadcrumbHeader = _Helpers.Selector.findOne("#breadcrumb-header");
             if (breadcrumb && breadcrumbHeader) {
                 var offsets = breadcrumb.getBoundingClientRect();
+                var breadcrumbText = breadcrumb.cloneNode(true);
                 if (offsets.top <= 40) {
                     breadcrumbHeader.classList.add("show");
                     header.classList.add("scrolled");
                 } else if (offsets.top > 40) {
+                    breadcrumbHeader.innerHTML = "";
+                    breadcrumbHeader.appendChild(breadcrumbText);
                     breadcrumbHeader.classList.remove("show");
                     header.classList.remove("scrolled");
                 }
@@ -111,20 +114,9 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
     $(".sidebar [data-vendor=\"jquery.scrollbar\"]").addClass("scrollbar").addClass("scrollbar-macosx").scrollbar(Object.assign({}, options));
 };
 
-var _handle_breadcrumb = function _handle_breadcrumb() {
-    var breadcrumb = _Helpers.Selector.findOne(".breadcrumb-section nav .breadcrumb");
-    var breadcrumbHeader = _Helpers.Selector.findOne("#breadcrumb-header");
-    if (breadcrumb && breadcrumbHeader) {
-        var breadcrumbText = breadcrumb.cloneNode(true);
-        breadcrumbHeader.innerHTML = "";
-        breadcrumbHeader.appendChild(breadcrumbText);
-    }
-};
-
 var _handle_sidebar_state = function _handle_sidebar_state() {
     var currentPaths = window.location.pathname.split("/");
     var currentPath = "" + currentPaths[currentPaths.length - 1];
-
     var sidebar = _Helpers.Selector.findOne(".nav-sidebar");
 
     sidebar.classList.add("show-children");
@@ -133,7 +125,7 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
     var mainSidebarItems = _Helpers.Selector.find(".sidebar-main-item");
     mainSidebarItems.forEach(function (mainItem, mainItemIndex) {
         var button = _Helpers.Selector.findOne("a.btn, button.btn", mainItem);
-        if (button && button.getAttribute("href") === currentPath) {
+        if (button && (button.getAttribute("href") === currentPath || button.getAttribute("href") === window.location.pathname)) {
             mainItem.classList.add("active");
             sidebar.classList.remove("show-children");
             return;
@@ -143,7 +135,7 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
         var childrenSidebarItems = _Helpers.Selector.find(".sidebar-children-item", mainItem);
         childrenSidebarItems.forEach(function (childrenItem, childrenItemIndex) {
             var button = _Helpers.Selector.findOne("a", childrenItem);
-            if (button && button.getAttribute("href") === currentPath) {
+            if (button && (button.getAttribute("href") === currentPath || button.getAttribute("href") === window.location.pathname)) {
                 childrenItem.classList.add("active");
                 mainItem.classList.add("active");
                 if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
@@ -233,12 +225,8 @@ var App = (function () {
             this.theme = _AppTheme.init(settings.colors);
             this.helpers = _Helpers;
             this.initVendor();
-            this.initBreadcrumb();
             this.initSidebar();
             return this;
-        },
-        initBreadcrumb: function initBreadcrumb() {
-            _handle_breadcrumb();
         },
         initSidebar: function initSidebar() {
             _handle_sidebar_actions();

@@ -40,14 +40,17 @@ aside.header {
         }
         #breadcrumb-header {
             padding-left: 10px;
-            .breadcrumb {
-                transform: translateY($header-height);
-                transition: all .2s ease-in-out;
-            }
+            transform: translateY($header-height);
+            transition: all .2s ease-in-out;
+            // .breadcrumb {
+            //     transform: translateY($header-height);
+            //     transition: all .2s ease-in-out;
+            // }
             &.show {
-                .breadcrumb {
+                // .breadcrumb {
                     transform: translateY(0px);
-                }
+                // }
+                color: set-button-text-color(var(--theme-color-rgb));
             }
             .breadcrumb {
                 padding: 10px 30px;

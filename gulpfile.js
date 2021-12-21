@@ -48,7 +48,7 @@ async function buildAndReload() {
 
 async function includeHTML(){
   return gulp.src([
-    'src/html/*.html',
+    'src/html/**/*.html',
     '!src/html/__root/*.html', // ignore
     '!src/html/_partials/*.html', // ignore
     ])

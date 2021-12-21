@@ -2,6 +2,12 @@
     @each $key, $value in $map {
         #{$key}: #{$value};
         #{"#{$key}-rgb"}: colorToRGB($value);
+        #{"#{$key}-darken10"}: darken($value, 10);
+        #{"#{$key}-darken30"}: darken($value, 30);
+        #{"#{$key}-darken50"}: darken($value, 50);
+        #{"#{$key}-lighten10"}: lighten($value, 10);
+        #{"#{$key}-lighten30"}: lighten($value, 30);
+        #{"#{$key}-lighten50"}: lighten($value, 50);
     }
 }
 
