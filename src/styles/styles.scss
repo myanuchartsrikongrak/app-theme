@@ -13,6 +13,7 @@
 @import "scss/ui/buttons";
 @import "scss/ui/breadcrumb";
 @import "scss/ui/card";
+@import "scss/ui/accordions";
 
 @import "scss/ui/vendor/jquery.scrollbar";
 
@@ -21,6 +22,9 @@ body {
     overflow: auto;
     color: rgba(var(--theme-color-rgb), 0.65);
     font-family: 'Maven Pro';
+    h1, h2, h3, h4, h5, h6, span, label, font, strong {
+        color: rgba(var(--theme-color-rgb), 0.8);
+    }
 }
 .app-layout {
     display: flex;

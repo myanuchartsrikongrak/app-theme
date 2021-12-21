@@ -415,7 +415,7 @@ aside.header {
       display: inline-block; }
       aside.header .navbar .navbar-toggle button i {
         font-size: 18px;
-        color: rgba(var(--theme-color-rgb), 0.65); }
+        color: rgba(var(--theme-primary-rgb), 0.8); }
       aside.header .navbar .navbar-toggle button:hover {
         background-color: var(--theme-background-hover); }
       aside.header .navbar .navbar-toggle button:focus, aside.header .navbar .navbar-toggle button:active {
@@ -647,7 +647,6 @@ body.show-sidebar .nav-sidebar.show-children + .bg-sidebar {
     font-size: 14px;
     display: table; }
     .breadcrumb li:first-of-type h4 {
-      font-size: 24px;
       margin-bottom: 0px;
       margin-right: 20px;
       color: var(--theme-primary);
@@ -759,6 +758,8 @@ body {
   overflow: auto;
   color: rgba(var(--theme-color-rgb), 0.65);
   font-family: 'Maven Pro'; }
+  body h1, body h2, body h3, body h4, body h5, body h6, body span, body label, body font, body strong {
+    color: rgba(var(--theme-color-rgb), 0.8); }
 
 .app-layout {
   display: flex;
