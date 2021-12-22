@@ -36,6 +36,9 @@ body {
         height: calc(100vh - #{$header-height});
         margin-top: $header-height;
         background-color: var(--theme-background);
+        &.scroll-wrapper {
+            position: relative;
+        }
         &.scroll-content {
             margin-top: 0px;
             background-color: transparent;
@@ -45,3 +48,104 @@ body {
         }
     }
 }
+
+
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {}
+
+// `lg` applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    .overflow-bg {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(#000000, .5);
+        top: 0px;
+        display: none;
+        z-index: 1;
+    }
+    body {
+        overflow: hidden;
+        [data-component="sidebar"] {
+            position: fixed;
+            transform: translateX(0px);
+        }
+        .page-scrollbar.scroll-wrapper {
+            transform: translateX(#{$main-sidebar-width});
+        }
+        .overflow-bg {
+            transform: translateX(#{$main-sidebar-width});
+            display: block;
+        }
+        &.sidebar-has-children {
+            [data-component="sidebar"] {
+                transform: translateX(0px);
+            }
+            .page-scrollbar.scroll-wrapper {
+                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+            }
+            .overflow-bg {
+                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+                display: block;
+            }
+        }
+        &.hide-mobile-sidebar {
+            [data-component="sidebar"] {
+                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+            }
+            .page-scrollbar.scroll-wrapper {
+                transform: translateX(0px);
+            }
+            .overflow-bg {
+                transform: translateX(0px);
+                display: none;
+            }
+        }
+
+    }
+    // .app-layout {
+    //     [data-component="sidebar"] {
+    //         // transform: translateX(-#{$main-sidebar-width + $sub-sidebar-width});
+    //         position: fixed;
+    //     }
+    //     .page-scrollbar.scroll-wrapper {
+    //         transform: translateX(0px);
+    //     }
+    // }
+    // body.sidebar-has-children {
+    //     .app-layout {
+    //         [data-component="sidebar"] {
+    //             // transform: translateX(-#{$main-sidebar-width + $sub-sidebar-width});
+    //         }
+    //         .page-scrollbar.scroll-wrapper {
+    //             transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+    //         }
+    //     }
+    // }
+    // body.show-sidebar {
+    //     .page-scrollbar.scroll-wrapper {
+    //         transform: translateX(#{$main-sidebar-width});
+    //     }
+    //     [data-component="sidebar"] {
+    //         transform: translateX(0px);
+    //     }
+    //     &.sidebar-has-children {
+    //         .page-scrollbar.scroll-wrapper {
+    //             transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+    //         }
+    //         [data-component="sidebar"] {
+    //             transform: translateX(0px);
+    //         }
+    //     }
+    // }
+    
+}
+
+// `xl` applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {}
+
+// `xxl` applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {}

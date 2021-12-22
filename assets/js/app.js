@@ -140,6 +140,7 @@ var _handle_sidebar_state = function _handle_sidebar_state() {
                 mainItem.classList.add("active");
                 if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
                     sidebar.classList.add("show-children");
+                    document.body.classList.add("sidebar-has-children");
                 }
             }
         });
@@ -161,12 +162,13 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
                     if (_Helpers.Selector.findOne("ul.nav-sidebar-children", mainItem)) {
                         sidebar.classList.add("show-children");
                         scrollsidebar.classList.add("show-children");
+                        document.body.classList.add("sidebar-has-children");
                     } else {
                         sidebar.classList.remove("show-children");
                         scrollsidebar.classList.remove("show-children");
+                        document.body.classList.remove("sidebar-has-children");
                     }
                 });
-                document.body.classList.add("show-sidebar");
                 mainItem.classList.add("active");
             });
         }
@@ -175,7 +177,8 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
     var toggleButtons = _Helpers.Selector.find("[data-click=\"sidebar-toggle\"]");
     toggleButtons.forEach(function (button, index) {
         button.addEventListener("click", function () {
-            document.body.classList.toggle("show-sidebar");
+            document.body.classList.toggle("hide-mobile-sidebar");
+            document.body.classList.toggle("hide-disktop-sidebar");
         });
     });
 };
