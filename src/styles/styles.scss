@@ -1,9 +1,9 @@
 @import "mixins";
 
 @import "themes/variables_default";
+@import "themes/variables_blue";
 @import "themes/variables_green";
 @import "themes/variables_orange";
-@import "themes/variables_gray";
 
 @import "variables";
 
@@ -50,7 +50,7 @@ body {
             background-color: transparent;
         }
         main.page-container {
-            padding: 20px;
+            padding: 20px 15px;
         }
     }
 }

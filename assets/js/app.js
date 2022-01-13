@@ -211,13 +211,20 @@ var _handle_resize = function _handle_resize() {
 var _AppTheme = (function () {
     return {
         colors: ["default"],
+        currentTheme: {
+            color: "default",
+            dark: ""
+        },
         init: function init() {
             var colors = arguments[0] === undefined ? ["default"] : arguments[0];
 
             this.colors = colors;
             var currentThemeColor = localStorage.getItem("app-theme-color");
             var currentThemeDark = localStorage.getItem("app-theme-dark");
+            var currentTheme = JSON.parse(localStorage.getItem("app-theme"));
+
             this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+
             return this;
         },
         toggleDarkMode: function toggleDarkMode() {
@@ -236,9 +243,15 @@ var _AppTheme = (function () {
         },
         setThemeColor: function setThemeColor(theme) {
             localStorage.setItem("app-theme-color", theme);
+            localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
+                color: theme
+            })));
         },
         setThemeDark: function setThemeDark(dark) {
             localStorage.setItem("app-theme-dark", dark);
+            localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
+                dark: dark === "dark"
+            })));
         } };
 })();
 
@@ -293,7 +306,7 @@ var TestApp = (function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     App.init({
-        colors: ["default", "green", "orange", "gray"]
+        colors: ["default", "green", "orange", "blue"]
     });
     TestApp.init();
 }, false);

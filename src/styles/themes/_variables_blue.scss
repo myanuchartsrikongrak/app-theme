@@ -1,0 +1,25 @@
+$theme-map-blue: (
+  --theme-primary: #283593,
+  --theme-secondary: #8c9eff,
+  --theme-background: #fcfcfe,
+  --theme-background-sidebar: #0c1024,
+  --theme-color-active: #283593,
+);
+$theme-map-blue-dark: (
+  --theme-primary: #448aff,
+  --theme-secondary: #82b1ff,
+  --theme-background-sidebar: #0c1024,
+  --theme-background: #0c1024,
+  --theme-color-active: #ffffff,
+);
+
+:root {
+  &.theme {
+    &--blue:not(.dark) {
+      @include spread-map-colors($theme-map-blue);
+    }
+    &--blue.dark {
+      @include spread-map-colors($theme-map-blue-dark);
+    }
+  }
+}

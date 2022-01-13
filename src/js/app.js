@@ -183,11 +183,18 @@ const _handle_resize = function() {
 const _AppTheme = (function () {
     return {
         colors: ['default'],
+        currentTheme: {
+            color: 'default',
+            dark: ''
+        },
         init: function (colors = ['default']) {
             this.colors = colors;
             const currentThemeColor = localStorage.getItem("app-theme-color");
             const currentThemeDark = localStorage.getItem("app-theme-dark");
+            const currentTheme = JSON.parse(localStorage.getItem("app-theme"));
+
             this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            
             return this;
         },
         toggleDarkMode: function () {
@@ -203,9 +210,15 @@ const _AppTheme = (function () {
         },
         setThemeColor: function (theme) {
             localStorage.setItem("app-theme-color", theme);
+            localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
+                color: theme
+            })));
         },
         setThemeDark: function (dark) {
             localStorage.setItem("app-theme-dark", dark);
+            localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
+                dark: dark === 'dark'
+            })));
         },
     };
 })();
