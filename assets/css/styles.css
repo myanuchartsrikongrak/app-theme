@@ -23,6 +23,14 @@
   --theme-background-lighten10: white;
   --theme-background-lighten30: white;
   --theme-background-lighten50: white;
+  --theme-background-sidebar: #0c1024;
+  --theme-background-sidebar-rgb: 12, 16, 36;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #19214a;
+  --theme-background-sidebar-lighten30: #324397;
+  --theme-background-sidebar-lighten50: #6475cb;
   --theme-color-active: #283593;
   --theme-color-active-rgb: 40, 53, 147;
   --theme-color-active-darken10: #1d276b;
@@ -49,6 +57,14 @@
   --theme-secondary-lighten10: #b5d1ff;
   --theme-secondary-lighten30: white;
   --theme-secondary-lighten50: white;
+  --theme-background-sidebar: #0c1024;
+  --theme-background-sidebar-rgb: 12, 16, 36;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #19214a;
+  --theme-background-sidebar-lighten30: #324397;
+  --theme-background-sidebar-lighten50: #6475cb;
   --theme-background: #0c1024;
   --theme-background-rgb: 12, 16, 36;
   --theme-background-darken10: black;
@@ -91,6 +107,14 @@
   --theme-background-lighten10: white;
   --theme-background-lighten30: white;
   --theme-background-lighten50: white;
+  --theme-background-sidebar: #001412;
+  --theme-background-sidebar-rgb: 0, 20, 18;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #004740;
+  --theme-background-sidebar-lighten30: #00ad9c;
+  --theme-background-sidebar-lighten50: #14ffe8;
   --theme-color-active: #008573;
   --theme-color-active-rgb: 0, 133, 115;
   --theme-color-active-darken10: #005247;
@@ -125,6 +149,14 @@
   --theme-background-lighten10: #004740;
   --theme-background-lighten30: #00ad9c;
   --theme-background-lighten50: #14ffe8;
+  --theme-background-sidebar: #001412;
+  --theme-background-sidebar-rgb: 0, 20, 18;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #004740;
+  --theme-background-sidebar-lighten30: #00ad9c;
+  --theme-background-sidebar-lighten50: #14ffe8;
   --theme-color-active: #ffffff;
   --theme-color-active-rgb: 255, 255, 255;
   --theme-color-active-darken10: #e6e6e6;
@@ -159,6 +191,14 @@
   --theme-background-lighten10: white;
   --theme-background-lighten30: white;
   --theme-background-lighten50: white;
+  --theme-background-sidebar: #2d1000;
+  --theme-background-sidebar-rgb: 45, 16, 0;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #602200;
+  --theme-background-sidebar-lighten30: #c64600;
+  --theme-background-sidebar-lighten50: #ff782d;
   --theme-color-active: #ff3d00;
   --theme-color-active-rgb: 255, 61, 0;
   --theme-color-active-darken10: #cc3100;
@@ -193,6 +233,14 @@
   --theme-background-lighten10: #602200;
   --theme-background-lighten30: #c64600;
   --theme-background-lighten50: #ff782d;
+  --theme-background-sidebar: #2d1000;
+  --theme-background-sidebar-rgb: 45, 16, 0;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #602200;
+  --theme-background-sidebar-lighten30: #c64600;
+  --theme-background-sidebar-lighten50: #ff782d;
   --theme-color-active: #ffffff;
   --theme-color-active-rgb: 255, 255, 255;
   --theme-color-active-darken10: #e6e6e6;
@@ -227,6 +275,14 @@
   --theme-background-lighten10: white;
   --theme-background-lighten30: white;
   --theme-background-lighten50: white;
+  --theme-background-sidebar: #090e0f;
+  --theme-background-sidebar-rgb: 9, 14, 15;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #1c2c2f;
+  --theme-background-sidebar-lighten30: #42676f;
+  --theme-background-sidebar-lighten50: #6f9fa8;
   --theme-color-active: #424242;
   --theme-color-active-rgb: 66, 66, 66;
   --theme-color-active-darken10: #292929;
@@ -261,6 +317,14 @@
   --theme-background-lighten10: #1c2c2f;
   --theme-background-lighten30: #42676f;
   --theme-background-lighten50: #6f9fa8;
+  --theme-background-sidebar: #090e0f;
+  --theme-background-sidebar-rgb: 9, 14, 15;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #1c2c2f;
+  --theme-background-sidebar-lighten30: #42676f;
+  --theme-background-sidebar-lighten50: #6f9fa8;
   --theme-color-active: #ffffff;
   --theme-color-active-rgb: 255, 255, 255;
   --theme-color-active-darken10: #e6e6e6;
@@ -319,6 +383,14 @@
   --theme-background-lighten10: white;
   --theme-background-lighten30: white;
   --theme-background-lighten50: white;
+  --theme-background-sidebar: #0c1024;
+  --theme-background-sidebar-rgb: 12, 16, 36;
+  --theme-background-sidebar-darken10: black;
+  --theme-background-sidebar-darken30: black;
+  --theme-background-sidebar-darken50: black;
+  --theme-background-sidebar-lighten10: #19214a;
+  --theme-background-sidebar-lighten30: #324397;
+  --theme-background-sidebar-lighten50: #6475cb;
   --theme-color-active: #283593;
   --theme-color-active-rgb: 40, 53, 147;
   --theme-color-active-darken10: #1d276b;
@@ -372,6 +444,14 @@
     --theme-secondary-lighten10: #b5d1ff;
     --theme-secondary-lighten30: white;
     --theme-secondary-lighten50: white;
+    --theme-background-sidebar: #0c1024;
+    --theme-background-sidebar-rgb: 12, 16, 36;
+    --theme-background-sidebar-darken10: black;
+    --theme-background-sidebar-darken30: black;
+    --theme-background-sidebar-darken50: black;
+    --theme-background-sidebar-lighten10: #19214a;
+    --theme-background-sidebar-lighten30: #324397;
+    --theme-background-sidebar-lighten50: #6475cb;
     --theme-background: #0c1024;
     --theme-background-rgb: 12, 16, 36;
     --theme-background-darken10: black;
@@ -397,10 +477,7 @@ aside.header {
   width: 100%;
   position: fixed;
   background-color: var(--theme-background);
-  z-index: 1;
   overflow: hidden; }
-  aside.header.scrolled {
-    border-bottom: 1px solid rgba(var(--theme-color-active-rgb), 0.1); }
   aside.header .navbar {
     height: 56px;
     padding: 0px; }
@@ -437,8 +514,7 @@ aside.header {
           position: relative;
           font-size: 12px;
           display: table;
-          margin-top: 3px;
-          display: none; }
+          margin-top: 3px; }
           aside.header .navbar #breadcrumb-header .breadcrumb li:before {
             bottom: 0px !important; }
           aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type {
@@ -446,7 +522,7 @@ aside.header {
             display: block; }
             aside.header .navbar #breadcrumb-header .breadcrumb li:first-of-type h4 {
               font-size: 18px;
-              margin-right: 10px; }
+              margin-right: 15px; }
     aside.header .navbar .navbar-brand {
       margin: 0px;
       width: 200px;
@@ -459,14 +535,16 @@ aside.header {
         margin-right: 10px; }
       aside.header .navbar .navbar-brand span {
         line-height: 35px;
-        margin: 0px; }
+        margin: 0px;
+        color: rgba(var(--theme-color-rgb), 0.6); }
     aside.header .navbar .navbar-items {
       display: inline-block;
       width: 100%; }
 
 aside.sidebar {
   display: block;
-  margin-top: 56px; }
+  margin-top: 56px;
+  background-color: var(--theme-background); }
   aside.sidebar .nav-sidebar {
     height: calc(100vh - 56px);
     width: 80px; }
@@ -488,7 +566,8 @@ aside.sidebar {
         width: 100%;
         padding-left: 0px;
         padding-right: 0px;
-        font-size: 13px; }
+        font-size: 13px;
+        font-weight: 600; }
         aside.sidebar .nav-sidebar-main > li > .btn * {
           pointer-events: none; }
         aside.sidebar .nav-sidebar-main > li > .btn i {
@@ -522,6 +601,7 @@ aside.sidebar {
         aside.sidebar .nav-sidebar-main > li.active .nav-sidebar-children {
           display: block !important; }
   aside.sidebar .nav-sidebar-children {
+    transition: all .2s ease;
     width: calc(200px);
     padding: 0px;
     list-style-type: none;
@@ -561,7 +641,8 @@ aside.sidebar {
         width: 100%;
         padding: 7px 15px 7px 15px;
         font-size: 13px;
-        text-decoration: none; }
+        text-decoration: none;
+        font-weight: 500; }
         aside.sidebar .nav-sidebar-children li a i {
           margin-right: 10px;
           font-size: 13px;
@@ -582,9 +663,20 @@ aside.sidebar {
             aside.sidebar .nav-sidebar-children li:hover:not(.label).active a i {
               color: var(--theme-color-active); }
   aside.sidebar .nav-sidebar + .bg-sidebar {
-    width: calc(80px); }
+    width: calc(80px);
+    transition: all .5s ease; }
   aside.sidebar .nav-sidebar.show-children + .bg-sidebar {
-    width: calc(280px); }
+    width: calc(280px) !important; }
+
+body.is-mobile .nav-sidebar + .bg-sidebar {
+  width: calc(80px);
+  transition: all .5s ease; }
+
+body.is-mobile .nav-sidebar.show-children + .bg-sidebar {
+  width: calc(280px) !important; }
+
+body.is-desktop.hide-desktop-sidebar .nav-sidebar.show-children + .bg-sidebar {
+  width: calc(80px) !important; }
 
 .btn.btn-primary {
   background-color: var(--theme-primary);
@@ -755,6 +847,10 @@ body {
   font-family: 'Maven Pro'; }
   body h1, body h2, body h3, body h4, body h5, body h6, body span, body label, body font, body strong {
     color: rgba(var(--theme-color-rgb), 0.8); }
+  body #is-desktop {
+    display: block; }
+  body #is-mobile {
+    display: none; }
 
 .app-layout {
   display: flex;
@@ -774,36 +870,46 @@ body {
     .app-layout .page-scrollbar main.page-container {
       padding: 20px; }
 
+aside.header, .overflow-bg, .sidebar, [data-component="sidebar"], .page-scrollbar.scroll-wrapper {
+  transition: all .2s ease; }
+
 @media (max-width: 991.98px) {
+  #is-desktop {
+    display: none !important; }
+  #is-mobile {
+    display: block !important; }
   .overflow-bg {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0px;
     display: none;
-    z-index: 1; }
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); }
+  aside.sidebar {
+    margin-top: 0px; }
+    aside.sidebar .nav-sidebar {
+      height: calc(100vh); }
+      aside.sidebar .nav-sidebar .nav-sidebar-main {
+        height: calc(100vh - 20px); }
+      aside.sidebar .nav-sidebar .nav-sidebar-children {
+        height: calc(100vh);
+        margin-top: 0px; }
   body {
     overflow: hidden; }
     body [data-component="sidebar"] {
       position: fixed;
-      transform: translateX(0px); }
-    body .page-scrollbar.scroll-wrapper {
-      transform: translateX(80px); }
+      transform: translateX(0px);
+      z-index: 1; }
     body .overflow-bg {
-      transform: translateX(80px);
       display: block; }
     body.sidebar-has-children [data-component="sidebar"] {
       transform: translateX(0px); }
-    body.sidebar-has-children .page-scrollbar.scroll-wrapper {
-      transform: translateX(280px); }
     body.sidebar-has-children .overflow-bg {
-      transform: translateX(280px);
       display: block; }
     body.hide-mobile-sidebar [data-component="sidebar"] {
-      transform: translateX(280px); }
-    body.hide-mobile-sidebar .page-scrollbar.scroll-wrapper {
-      transform: translateX(0px); }
+      transform: translateX(-80px); }
+    body.hide-mobile-sidebar.sidebar-has-children [data-component="sidebar"] {
+      transform: translateX(-280px); }
     body.hide-mobile-sidebar .overflow-bg {
-      transform: translateX(0px);
       display: none; } }

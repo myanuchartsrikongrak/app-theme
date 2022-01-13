@@ -25,6 +25,12 @@ body {
     h1, h2, h3, h4, h5, h6, span, label, font, strong {
         color: rgba(var(--theme-color-rgb), 0.8);
     }
+    #is-desktop {
+        display: block;
+    }
+    #is-mobile {
+        display: none;
+    }
 }
 .app-layout {
     display: flex;
@@ -48,7 +54,9 @@ body {
         }
     }
 }
-
+aside.header, .overflow-bg, .sidebar, [data-component="sidebar"], .page-scrollbar.scroll-wrapper {
+    transition: all .2s ease;
+}
 
 // `sm` applies to x-small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {}
@@ -58,50 +66,76 @@ body {
 
 // `lg` applies to medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
+    #is-desktop {
+        display: none!important;
+    }
+    #is-mobile {
+        display: block!important;
+    }
     .overflow-bg {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        background: rgba(#000000, .5);
-        top: 0px;
         display: none;
-        z-index: 1;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+        // visibility: hidden;
+    }
+    aside.sidebar {
+        margin-top: 0px;
+        .nav-sidebar {
+            height: calc(100vh);
+            .nav-sidebar-main {
+                height: calc(100vh - 20px);
+            }
+            .nav-sidebar-children {
+                height: calc(100vh);
+                margin-top: 0px;
+            }
+        }
     }
     body {
         overflow: hidden;
         [data-component="sidebar"] {
             position: fixed;
             transform: translateX(0px);
+            z-index: 1;
         }
-        .page-scrollbar.scroll-wrapper {
-            transform: translateX(#{$main-sidebar-width});
-        }
+        // .page-scrollbar.scroll-wrapper, aside.header {
+        //     transform: translateX(#{$main-sidebar-width});
+        // }
         .overflow-bg {
-            transform: translateX(#{$main-sidebar-width});
             display: block;
+            // visibility: visible;
         }
         &.sidebar-has-children {
             [data-component="sidebar"] {
                 transform: translateX(0px);
             }
-            .page-scrollbar.scroll-wrapper {
-                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
-            }
+            // .page-scrollbar.scroll-wrapper, aside.header {
+            //     transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+            // }
             .overflow-bg {
-                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
                 display: block;
+                // visibility: visible;
             }
         }
         &.hide-mobile-sidebar {
             [data-component="sidebar"] {
-                transform: translateX(#{$main-sidebar-width + $sub-sidebar-width});
+                transform: translateX(-#{$main-sidebar-width});
             }
-            .page-scrollbar.scroll-wrapper {
-                transform: translateX(0px);
+            &.sidebar-has-children {
+                [data-component="sidebar"] {
+                    transform: translateX(-#{$main-sidebar-width + $sub-sidebar-width});
+                }
             }
+            // .page-scrollbar.scroll-wrapper, aside.header {
+            //     transform: translateX(0px);
+            // }
             .overflow-bg {
-                transform: translateX(0px);
                 display: none;
+                // visibility: hidden;
             }
         }
 

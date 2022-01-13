@@ -98,10 +98,10 @@ var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar()
             if (breadcrumb && breadcrumbHeader) {
                 var offsets = breadcrumb.getBoundingClientRect();
                 var breadcrumbText = breadcrumb.cloneNode(true);
-                if (offsets.top <= 40) {
+                if (offsets.top <= 50) {
                     breadcrumbHeader.classList.add("show");
                     header.classList.add("scrolled");
-                } else if (offsets.top > 40) {
+                } else if (offsets.top > 50) {
                     breadcrumbHeader.innerHTML = "";
                     breadcrumbHeader.appendChild(breadcrumbText);
                     breadcrumbHeader.classList.remove("show");
@@ -163,6 +163,7 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
                         sidebar.classList.add("show-children");
                         scrollsidebar.classList.add("show-children");
                         document.body.classList.add("sidebar-has-children");
+                        document.body.classList.remove("hide-desktop-sidebar");
                     } else {
                         sidebar.classList.remove("show-children");
                         scrollsidebar.classList.remove("show-children");
@@ -177,10 +178,34 @@ var _handle_sidebar_actions = function _handle_sidebar_actions() {
     var toggleButtons = _Helpers.Selector.find("[data-click=\"sidebar-toggle\"]");
     toggleButtons.forEach(function (button, index) {
         button.addEventListener("click", function () {
-            document.body.classList.toggle("hide-mobile-sidebar");
-            document.body.classList.toggle("hide-disktop-sidebar");
+            if (document.body.classList.contains("is-desktop")) {
+                document.body.classList.toggle("hide-desktop-sidebar");
+            }
+            if (document.body.classList.contains("is-mobile")) {
+                document.body.classList.toggle("hide-mobile-sidebar");
+            }
         });
     });
+};
+
+var _handle_resize = function _handle_resize() {
+    var isDesktop = false;
+    var isMobile = false;
+    try {
+        isDesktop = window.getComputedStyle(_Helpers.Selector.findOne("#is-desktop")).display === "block";
+        isMobile = window.getComputedStyle(_Helpers.Selector.findOne("#is-mobile")).display === "block";
+    } catch (ex) {
+        isDesktop = false;
+        isMobile = false;
+    }
+    if (isDesktop) {
+        document.body.classList.add("is-desktop");
+        document.body.classList.remove("is-mobile");
+    }
+    if (isMobile) {
+        document.body.classList.add("is-mobile");
+        document.body.classList.remove("is-desktop");
+    }
 };
 
 var _AppTheme = (function () {
@@ -227,9 +252,28 @@ var App = (function () {
             Object.assign(settings, options);
             this.theme = _AppTheme.init(settings.colors);
             this.helpers = _Helpers;
+            this.initPlatformDetection();
+            this.initResize();
             this.initVendor();
             this.initSidebar();
             return this;
+        },
+        initPlatformDetection: function initPlatformDetection() {
+            var div = document.createElement("DIV");
+            div.setAttribute("id", "platform-detection");
+            var divIsMobile = document.createElement("DIV");
+            divIsMobile.setAttribute("id", "is-mobile");
+            var divIsDesktop = document.createElement("DIV");
+            divIsDesktop.setAttribute("id", "is-desktop");
+            div.appendChild(divIsMobile);
+            div.appendChild(divIsDesktop);
+            document.body.appendChild(div);
+        },
+        initResize: function initResize() {
+            _handle_resize();
+            window.addEventListener("resize", function (event) {
+                _handle_resize();
+            }, true);
         },
         initSidebar: function initSidebar() {
             _handle_sidebar_actions();

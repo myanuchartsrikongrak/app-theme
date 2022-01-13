@@ -3,6 +3,7 @@ aside.sidebar {
     display: block;
     // padding-top: 10px;
     margin-top: $header-height;
+    background-color: var(--theme-background);
     .nav-sidebar {
         height: calc(100vh - #{$header-height});
         width: $main-sidebar-width;
@@ -26,6 +27,7 @@ aside.sidebar {
                 padding-left: 0px;
                 padding-right: 0px;
                 font-size: 13px;
+                font-weight: 600;
                 * {
                     pointer-events: none;
                 }
@@ -84,6 +86,7 @@ aside.sidebar {
             padding-bottom: 0px!important;
             position: relative!important;
         }
+        transition: all .2s ease;
         width: calc(#{$sub-sidebar-width});
         padding: 0px;
         list-style-type: none;
@@ -118,7 +121,7 @@ aside.sidebar {
                 padding: 7px 15px 7px 15px;
                 font-size: 13px;
                 text-decoration: none;
-                // font-weight: 500;
+                font-weight: 500;
                 i {
                     margin-right: 10px;
                     font-size: 13px;
@@ -154,12 +157,49 @@ aside.sidebar {
     .nav-sidebar {
         +.bg-sidebar {
             width: calc(#{$main-sidebar-width});
+            transition: all .5s ease;
         }
         &.show-children {
             +.bg-sidebar {
-                width: calc(#{$main-sidebar-width + $sub-sidebar-width});
+                width: calc(#{$main-sidebar-width + $sub-sidebar-width})!important;
             }
         }
     }
 }
 
+// body.hide-desktop-sidebar {
+//     .nav-sidebar {
+//         &.show-children {
+//             +.bg-sidebar {
+//                 width: calc(#{$main-sidebar-width})!important;
+//             }
+//         }
+//     }
+// }
+
+body {
+    &.is-mobile {
+        .nav-sidebar {
+            +.bg-sidebar {
+                width: calc(#{$main-sidebar-width});
+                transition: all .5s ease;
+            }
+            &.show-children {
+                +.bg-sidebar {
+                    width: calc(#{$main-sidebar-width + $sub-sidebar-width})!important;
+                }
+            }
+        }
+    }
+    &.is-desktop {
+        &.hide-desktop-sidebar {
+            .nav-sidebar {
+                &.show-children {
+                    +.bg-sidebar {
+                        width: calc(#{$main-sidebar-width})!important;
+                    }
+                }
+            }
+        }
+    }
+}

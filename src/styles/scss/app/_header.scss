@@ -2,10 +2,9 @@ aside.header {
     width: 100%;
     position: fixed;
     background-color: var(--theme-background);
-    z-index: 1;
     overflow: hidden;
     &.scrolled {
-        border-bottom: 1px solid rgba(var(--theme-color-active-rgb), .1);
+        // border-bottom: 1px solid rgba(var(--theme-color-active-rgb), .1);
     }
     .navbar {
         height: $header-height;
@@ -52,7 +51,7 @@ aside.header {
                     font-size: 12px;
                     display: table;
                     margin-top: 3px;
-                    display: none;
+                    // display: none;
                     &:before {
                         bottom: 0px!important;
                     }
@@ -61,7 +60,7 @@ aside.header {
                         display: block;
                         h4 {
                             font-size: 18px;
-                            margin-right: 10px;
+                            margin-right: 15px;
                         }
                     }
                 }
@@ -81,6 +80,7 @@ aside.header {
             span {
                 line-height: 35px;
                 margin: 0px;
+                color: rgba(var(--theme-color-rgb), 0.6);
             }
         }
         .navbar-items {
