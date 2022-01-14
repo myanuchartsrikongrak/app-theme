@@ -570,9 +570,20 @@ aside.sidebar {
         padding-left: 0px;
         padding-right: 0px;
         font-size: 13px;
-        font-weight: 600; }
+        font-weight: 600;
+        position: relative; }
         aside.sidebar .nav-sidebar-main > li > .btn * {
           pointer-events: none; }
+        aside.sidebar .nav-sidebar-main > li > .btn:before {
+          content: "";
+          height: 0%;
+          width: 5px;
+          position: absolute;
+          left: -9px;
+          border-radius: 10px;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
         aside.sidebar .nav-sidebar-main > li > .btn i {
           font-size: 18px;
           color: rgba(var(--theme-color-rgb), 0.65); }
@@ -589,14 +600,9 @@ aside.sidebar {
         aside.sidebar .nav-sidebar-main > li.active > .btn {
           position: relative; }
           aside.sidebar .nav-sidebar-main > li.active > .btn:before {
-            content: "";
             height: 100%;
-            width: 5px;
-            background-color: var(--theme-primary);
-            position: absolute;
-            left: -9px;
-            border-radius: 10px;
-            top: 0; }
+            transition: all .3s ease;
+            background-color: var(--theme-primary); }
           aside.sidebar .nav-sidebar-main > li.active > .btn span, aside.sidebar .nav-sidebar-main > li.active > .btn i {
             color: var(--theme-primary); }
           aside.sidebar .nav-sidebar-main > li.active > .btn + ul {

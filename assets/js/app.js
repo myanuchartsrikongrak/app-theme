@@ -83,7 +83,7 @@ var _Helpers = (function () {
     };
 })();
 
-var _handleVendor__jqueyr_scrollbar = function _handleVendor__jqueyr_scrollbar() {
+var _handleVendor__jquery_scrollbar = function _handleVendor__jquery_scrollbar() {
     var options = {
         ignoreOverlay: true,
         ignoreMobile: true,
@@ -213,44 +213,44 @@ var _AppTheme = (function () {
         colors: ["default"],
         currentTheme: {
             color: "default",
-            dark: ""
+            dark: false
         },
         init: function init() {
             var colors = arguments[0] === undefined ? ["default"] : arguments[0];
 
             this.colors = colors;
-            var currentThemeColor = localStorage.getItem("app-theme-color");
-            var currentThemeDark = localStorage.getItem("app-theme-dark");
-            var currentTheme = JSON.parse(localStorage.getItem("app-theme"));
+            var currentTheme = JSON.parse(localStorage.getItem("app-theme")) || this.currentTheme;
+            var currentThemeColor = currentTheme.color;
+            var currentThemeDark = currentTheme.dark;
 
-            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark);
 
             return this;
         },
         toggleDarkMode: function toggleDarkMode() {
             document.documentElement.classList.toggle("dark");
-            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
+            this.setThemeDark(document.documentElement.classList.contains("dark"));
         },
         change: function change() {
             var theme = arguments[0] === undefined ? "default" : arguments[0];
-            var dark = arguments[1] === undefined ? "" : arguments[1];
+            var dark = arguments[1] === undefined ? false : arguments[1];
 
-            if (document.documentElement.classList.contains("dark")) dark = "dark";
+            if (document.documentElement.classList.contains("dark")) dark = true;
             this.setThemeDark(dark);
             if (!this.colors.includes(theme)) theme = "default";
             this.setThemeColor(theme);
-            document.documentElement.className = "theme--" + theme + " " + dark;
+            document.documentElement.className = "theme--" + theme + " " + (dark ? "dark" : "");
         },
         setThemeColor: function setThemeColor(theme) {
-            localStorage.setItem("app-theme-color", theme);
             localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
                 color: theme
             })));
         },
-        setThemeDark: function setThemeDark(dark) {
-            localStorage.setItem("app-theme-dark", dark);
+        setThemeDark: function setThemeDark() {
+            var dark = arguments[0] === undefined ? true : arguments[0];
+
             localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
-                dark: dark === "dark"
+                dark: dark
             })));
         } };
 })();
@@ -293,7 +293,7 @@ var App = (function () {
             _handle_sidebar_state();
         },
         initVendor: function initVendor() {
-            _handleVendor__jqueyr_scrollbar();
+            _handleVendor__jquery_scrollbar();
         }
     };
 })();

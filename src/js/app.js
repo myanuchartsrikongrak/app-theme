@@ -53,7 +53,7 @@ const _Helpers = (function () {
     };
 })();
 
-const _handleVendor__jqueyr_scrollbar = function () {
+const _handleVendor__jquery_scrollbar = function () {
     const options = {
         ignoreOverlay: true,
         ignoreMobile: true,
@@ -185,39 +185,37 @@ const _AppTheme = (function () {
         colors: ['default'],
         currentTheme: {
             color: 'default',
-            dark: ''
+            dark: false
         },
         init: function (colors = ['default']) {
             this.colors = colors;
-            const currentThemeColor = localStorage.getItem("app-theme-color");
-            const currentThemeDark = localStorage.getItem("app-theme-dark");
-            const currentTheme = JSON.parse(localStorage.getItem("app-theme"));
+            const currentTheme = JSON.parse(localStorage.getItem("app-theme")) || this.currentTheme;
+            const currentThemeColor = currentTheme.color;
+            const currentThemeDark = currentTheme.dark;
 
-            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark ? currentThemeDark : "");
+            this.change(currentThemeColor ? currentThemeColor : "default", currentThemeDark);
             
             return this;
         },
         toggleDarkMode: function () {
             document.documentElement.classList.toggle("dark");
-            this.setThemeDark(document.documentElement.classList.contains("dark") ? "dark" : "");
+            this.setThemeDark(document.documentElement.classList.contains("dark"));
         },
-        change: function (theme = "default", dark = "") {
-            if (document.documentElement.classList.contains("dark")) dark = "dark";
+        change: function (theme = "default", dark = false) {
+            if (document.documentElement.classList.contains("dark")) dark = true;
             this.setThemeDark(dark);
             if (!this.colors.includes(theme)) theme = "default";
             this.setThemeColor(theme);
-            document.documentElement.className = `theme--${theme} ${dark}`;
+            document.documentElement.className = `theme--${theme} ${dark ? 'dark' : ''}`;
         },
         setThemeColor: function (theme) {
-            localStorage.setItem("app-theme-color", theme);
             localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
                 color: theme
             })));
         },
-        setThemeDark: function (dark) {
-            localStorage.setItem("app-theme-dark", dark);
+        setThemeDark: function (dark = true) {
             localStorage.setItem("app-theme", JSON.stringify(Object.assign(this.currentTheme, {
-                dark: dark === 'dark'
+                dark: dark
             })));
         },
     };
@@ -261,7 +259,7 @@ var App = (function () {
             _handle_sidebar_state();
         },
         initVendor: function() {
-            _handleVendor__jqueyr_scrollbar();
+            _handleVendor__jquery_scrollbar();
         }
     };
 })();
@@ -277,7 +275,7 @@ var TestApp = (function () {
 
 document.addEventListener('DOMContentLoaded', function(){ 
     App.init({
-        colors: ["default", "green", "orange", "gray"]
+        colors: ["default", "green", "orange", "blue"]
     });
     TestApp.init();
 }, false);

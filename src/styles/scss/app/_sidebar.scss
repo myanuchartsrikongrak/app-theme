@@ -31,6 +31,18 @@ aside.sidebar {
                 * {
                     pointer-events: none;
                 }
+                position: relative;
+                &:before {
+                    content: "";
+                    height: 0%;
+                    width: 5px;
+                    position: absolute;
+                    left: -9px;
+                    border-radius: 10px;
+                    top: 50%;
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
                 i {
                     font-size: 18px;
                     color: rgba(var(--theme-color-rgb), 0.65);
@@ -53,14 +65,9 @@ aside.sidebar {
                 >.btn {
                     position: relative;
                     &:before {
-                        content: "";
                         height: 100%;
-                        width: 5px;
+                        transition: all .3s ease;
                         background-color: var(--theme-primary);
-                        position: absolute;
-                        left: -9px;
-                        border-radius: 10px;
-                        top: 0;
                     }
                     span, i {
                         color: var(--theme-primary);
