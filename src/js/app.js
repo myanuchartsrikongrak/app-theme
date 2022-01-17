@@ -232,9 +232,9 @@ var App = (function () {
             this.theme = _AppTheme.init(settings.colors);
             this.helpers = _Helpers;
             this.initPlatformDetection();
+            this.initSidebar();
             this.initResize();
             this.initVendor();
-            this.initSidebar();
             return this;
         },
         initPlatformDetection: function() {
